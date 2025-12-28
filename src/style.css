@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700;900&family=Syncopate:wght@700&display=swap');
+
+:root {
+    --blue: #0072BC;
+    --orange: #F7941D;
+    --yellow: #FFF200;
+    --dark: #1A1A1A;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Syncopate', sans-serif;
+}
+
+/* Custom Effects */
+.text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
+.kartu-bento {
+    background: #222;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.img-bento {
+    @apply absolute inset-0 w-full h-full object-cover opacity-50 transition-transform duration-700;
+}
+
+.kartu-bento:hover .img-bento {
+    @apply scale-110 opacity-70;
+}
+
+.overlay-bento {
+    @apply absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10;
+}
+
+.badge {
+    @apply px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-[8px] font-bold uppercase tracking-[0.2em] rounded-full;
+}
+
+.tombol-join-pro {
+    @apply bg-white text-black px-8 py-3 rounded-full font-black italic text-xs uppercase hover:bg-[#FFF200] transition-all;
+}
+
+/* Modal Form Styles */
+.input-group {
+    @apply flex flex-col gap-2;
+}
+
+.label-pro {
+    @apply text-[10px] font-bold uppercase tracking-widest text-slate-500;
+}
+
+.input-pro {
+    @apply bg-transparent border-b border-white/20 py-3 text-xl font-bold outline-none focus:border-[#FFF200] transition-all;
+}
+
+/* Animation for Modal */
+.modal-active {
+    @apply visible;
+}
+.modal-active #modal-overlay {
+    @apply opacity-100;
+}
+.modal-active #modal-content {
+    @apply translate-x-0;
+}
+
+/* Noise Texture Effect */
+body::after {
+    content: "";
+    @apply fixed inset-0 opacity-[0.03] pointer-events-none -z-[5];
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+
+

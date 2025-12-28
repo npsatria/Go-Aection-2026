@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA26 | Digital Art Smart Generation</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="icon" href="/logo-Go-Aection26.png" type="image/png">
+</head>
+<body class="bg-[#1A1A1A] text-white overflow-x-hidden">
+
+    <!-- Background Art Elements -->
+    <div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#0072BC]/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#F7941D]/10 blur-[120px] rounded-full"></div>
+    </div>
+
+    <!-- Floating Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-5xl">
+        <div class="bg-black/20 backdrop-blur-2xl border border-white/10 p-3 rounded-full flex justify-between items-center px-8">
+            <div class="flex items-center gap-2">
+                <img src="/logo-Go-Aection26.png" class="h-8 w-auto" alt="Logo">
+                <span class="font-black italic tracking-tighter text-xl">GA<span class="text-[#FFF200]">26</span></span>
+            </div>
+            <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em]">
+                <a href="#hero" class="hover:text-[#FFF200] transition-all">Vision</a>
+                <a href="#arena" class="hover:text-[#FFF200] transition-all">Arena</a>
+                <a href="#showcase" class="hover:text-[#FFF200] transition-all text-cyan-400">Legacy</a>
+            </div>
+            <a href="#arena" class="bg-[#0072BC] hover:bg-[#F7941D] text-white px-6 py-2 rounded-full text-[10px] font-bold transition-all shadow-lg shadow-blue-500/20">JOIN NOW</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO SECTION: Typographic Chaos -->
+        <section id="hero" class="min-h-screen flex flex-col justify-center px-6 md:px-20 relative">
+            <p class="text-[#FFF200] font-bold tracking-[0.5em] uppercase text-xs mb-4" data-aos="fade-up">SMK TI Bali Global Denpasar Presents</p>
+            <h1 class="text-[15vw] md:text-[10vw] font-black leading-[0.8] tracking-tighter uppercase italic">
+                DIGITAL <span class="text-outline text-transparent">ART</span> <br>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFF200] via-white to-[#F7941D]">SMART GEN.</span> <br>
+                2026
+            </h1>
+            <div class="flex flex-col md:flex-row gap-8 mt-12 items-start">
+                <p class="max-w-md text-slate-400 text-sm leading-relaxed border-l-2 border-[#0072BC] pl-6">
+                    Mewadahi inovasi generasi bangsa dalam menunjukkan kemampuan teknologi informasi dan seni budaya.
+                </p>
+            </div>
+        </section>
+
+        <!-- LOMBA: Bento Grid Layout -->
+        <section id="arena" class="py-20 px-6 md:px-20">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+                <h2 class="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none">THE <br> ARENA</h2>
+                <p class="text-slate-500 font-bold uppercase text-[10px] tracking-widest text-right">// Choose your battleground</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Card 1: IT (Besar) -->
+                <div class="md:col-span-2 group relative h-[500px] kartu-bento overflow-hidden rounded-[2.5rem]">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f" class="img-bento">
+                    <div class="overlay-bento"></div>
+                    <div class="relative z-20 p-10 h-full flex flex-col justify-between">
+                        <div>
+                            <span class="badge">IT COMPETITION</span>
+                            <h3 class="text-4xl md:text-6xl font-black mt-4 italic uppercase">Technology <br> Mastery</h3>
+                        </div>
+                        <button class="buka-pendaftaran tombol-join-pro" data-lomba="Technology Mastery">JOIN COMPETITION →</button>
+                    </div>
+                </div>
+
+                <!-- Card 2: SUMOBOT (Tinggi) -->
+                <div class="group relative h-[500px] kartu-bento overflow-hidden rounded-[2.5rem] border-2 border-[#F7941D]/20">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e" class="img-bento">
+                    <div class="overlay-bento bg-gradient-to-t from-[#F7941D]/80 to-transparent"></div>
+                    <div class="relative z-20 p-10 h-full flex flex-col justify-between">
+                        <h3 class="text-4xl font-black italic uppercase leading-none">Sumobot <br> Battle</h3>
+                        <button class="buka-pendaftaran text-white font-bold text-sm italic underline" data-lomba="Sumobot">JOIN NOW</button>
+                    </div>
+                </div>
+
+                <!-- Card 3: ART (Lebar) -->
+                <div class="md:col-span-3 group relative h-[350px] kartu-bento overflow-hidden rounded-[2.5rem]">
+                    <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8" class="img-bento">
+                    <div class="overlay-bento"></div>
+                    <div class="relative z-20 p-10 h-full flex flex-col justify-end items-start md:flex-row md:justify-between md:items-end">
+                        <div>
+                            <span class="badge">TRADITIONAL ART</span>
+                            <h3 class="text-4xl font-black italic uppercase">Kesenian Budaya</h3>
+                        </div>
+                        <button class="buka-pendaftaran tombol-join-pro mt-4" data-lomba="Kesenian">REGISTER →</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Registration (Slide from Right) -->
+    <div id="modal-regis" class="fixed inset-0 z-[200] invisible">
+        <div id="modal-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-md opacity-0 transition-opacity duration-500"></div>
+        <div id="modal-content" class="absolute right-0 top-0 h-full w-full md:w-[500px] bg-[#1A1A1A] border-l border-white/10 p-10 translate-x-full transition-transform duration-500 flex flex-col justify-center">
+            <button id="tutup-regis" class="absolute top-10 right-10 text-4xl">✕</button>
+            <h2 class="text-5xl font-black italic mb-2 uppercase text-[#FFF200]">Enroll_</h2>
+            <p class="text-slate-500 text-xs uppercase tracking-widest mb-10">Digital Art Smart Generation 2026</p>
+
+            <form class="space-y-8">
+                <div class="input-group">
+                    <label class="label-pro">Competition</label>
+                    <input type="text" id="nama-lomba-terpilih" readonly class="input-pro text-[#0072BC]">
+                </div>
+                <div class="input-group">
+                    <label class="label-pro">Full Name</label>
+                    <input type="text" placeholder="Your Name" class="input-pro">
+                </div>
+                <button class="w-full py-5 bg-[#FFF200] text-black font-black uppercase italic hover:bg-white transition-all">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-[#151515] pt-20 pb-10 px-6 md:px-20 border-t border-white/5 relative overflow-hidden">
+        <!-- Dekorasi Cahaya di Footer -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-[#0072BC]/10 blur-[120px] rounded-full -z-10"></div>
+
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+
+                <!-- Brand & Slogan -->
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="/logo-Go-Aection26.png" class="h-12 w-auto" alt="Logo">
+                        <h2 class="font-black italic text-3xl tracking-tighter uppercase">GA<span class="text-[#FFF200]">26</span></h2>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-sm mb-8">
+                        Globaliti Art English Technology Competition. <br>
+                        Membangun generasi cerdas, kreatif, dan adaptif di era digital.
+                    </p>
+                    <div class="flex gap-4">
+                        <!-- Ikon Sosmed (Ambil dari Identitas Proposal) -->
+                        <a href="#" class="sosmed-link">IG</a>
+                        <a href="#" class="sosmed-link">TK</a>
+                        <a href="#" class="sosmed-link">YT</a>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="md:col-span-3">
+                    <h4 class="footer-title">Explore</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#hero" class="footer-link">Vision & Mission</a></li>
+                        <li><a href="#arena" class="footer-link">Competition Arena</a></li>
+                        <li><a href="#" class="footer-link">Registration Flow</a></li>
+                        <li><a href="#" class="footer-link text-[#F7941D]">Portal Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info (Data dari Proposal) -->
+                <div class="md:col-span-4">
+                    <h4 class="footer-title">Location & Contact</h4>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        Jl. Tukad Citarum No. 44 Denpasar <br>
+                        Telp. (0361) 249434
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between border-b border-white/5 pb-2 text-[10px]">
+                            <span class="text-slate-500 uppercase">IT Support</span>
+                            <span class="font-bold text-[#FFF200]">+62 822 4703 3044</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/5 pb-2 text-[10px]">
+                            <span class="text-slate-500 uppercase">Art Support</span>
+                            <span class="font-bold text-[#FFF200]">+62 812 3958 8346</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Big Typography Branding -->
+            <div class="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-[10vw] md:text-[6vw] font-black italic tracking-tighter opacity-10 select-none leading-none">
+                    SMK TI BALI GLOBAL
+                </div>
+                <div class="text-right">
+                    <p class="text-[10px] font-bold tracking-[0.4em] text-slate-500 uppercase">Always Ahead_</p>
+                    <p class="text-[10px] text-slate-600 mt-2">© 2025 Creative Team. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tombol Back to Top (UX Friendly) -->
+    <button id="backToTop" class="fixed bottom-10 right-10 w-12 h-12 bg-[#0072BC] text-white rounded-full z-50 opacity-0 invisible transition-all hover:bg-[#F7941D] flex items-center justify-center shadow-2xl">
+        ↑
+    </button>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
