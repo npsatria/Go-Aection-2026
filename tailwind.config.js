@@ -2,20 +2,23 @@
 export default {
   content: [
     "./index.html",
-    "./main.js",
+    "./assets/**/*.{js,html}", // Ini penting agar JS kamu terdeteksi
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        // Warna khusus tema "Smart Generation 2026"
-        'primary': '#00f2ff',   // Cyan Elektrik
-        'secondary': '#7000ff', // Ungu Digital
-        'accent': '#ff007a',    // Pink Neon (untuk pemanis)
-        'dark-bg': '#050508',   // Hitam Pekat
+        // Palet Warna Resmi Go-Aection 2026 (Sesuai HTML)
+        'ga-blue': '#17468B',     // Biru Utama
+        'ga-red': '#D12E17',      // Merah Aksen
+        'ga-orange': '#D17417',   // Oranye
+        'ga-mustard': '#D1A22E',  // Kuning Mustard/Gold
+        'ga-teal': '#467474',     // Hijau Teal
+        'void': '#050505',        // Hitam Background
       },
       fontFamily: {
-        'cyber': ['Orbitron', 'sans-serif'], // Font futuristik
+        'display': ['Syncopate', 'sans-serif'],    // Font Judul (Futuristik Lebar)
+        'body': ['Space Grotesk', 'sans-serif'],   // Font Paragraf (Teknikal)
       },
     },
   },

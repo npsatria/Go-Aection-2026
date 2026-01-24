@@ -1,0 +1,61 @@
+/* BASE SETTINGS */
+body {
+    background-color: #050505;
+    color: white;
+    overflow-x: hidden;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Syncopate', sans-serif;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #17468B; border-radius: 4px; }
+
+/* GLASSMORPHISM CARD (Efek Kaca PNB ITC) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #D1A22E; /* Warna Emas saat hover */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(209, 162, 46, 0.3);
+}
+
+/* GLOW EFFECTS (Cahaya di belakang) */
+.glow-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: -1;
+    animation: pulseGlow 5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); opacity: 0.3; }
+    100% { transform: scale(1.2); opacity: 0.5; }
+}
+
+/* NAVBAR GLASS */
+.nav-glass {
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* TEXT GRADIENT */
+.text-gradient {
+    background: linear-gradient(to right, #D1A22E, #D12E17);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

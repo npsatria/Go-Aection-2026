@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GA26 | Digital Art Smart Generation</title>
-    <link rel="shortcut icon" href="/src/assets/images/logo-Go-Aection26.png" type="image/x-icon">k
+    <title>Go-Aection 2026</title>
 
-    <!-- 1. TAILWIND CSS -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- 2. FONTS -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 
-    <!-- 3. CONFIG & CUSTOM CSS -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/src/css/style.css">
+
+    <!-- Config Warna (Inline biar aman) -->
     <script>
         tailwind.config = {
             theme: {
@@ -22,385 +24,221 @@
                     colors: {
                         'ga-blue': '#17468B',
                         'ga-red': '#D12E17',
-                        'ga-orange': '#D17417',
                         'ga-mustard': '#D1A22E',
-                        'ga-teal': '#467474',
-                        'void': '#050505'
-                    },
-                    fontFamily: {
-                        'display': ['Syncopate', 'sans-serif'],
-                        'body': ['Space Grotesk', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-
-    <style>
-        /* BASE & CURSOR */
-        body { background-color: #050505; color: white; overflow-x: hidden; }
-
-        @media (hover: hover) and (pointer: fine) {
-            body { cursor: none; }
-            #cursor {
-                position: fixed; top: 0; left: 0; width: 20px; height: 20px;
-                background: #D1A22E; border-radius: 50%; pointer-events: none;
-                mix-blend-mode: difference; z-index: 9999;
-                transform: translate(-50%, -50%);
-                transition: width 0.3s, height 0.3s, background 0.3s;
-            }
-            #cursor.hovered { width: 80px; height: 80px; background: #D12E17; opacity: 0.8; mix-blend-mode: normal; }
-        }
-        @media (hover: none) { #cursor { display: none; } }
-
-        /* HERO IMAGE FLOATING */
-        .hero-img {
-            position: absolute; object-fit: cover; border-radius: 8px; opacity: 0.6;
-            transition: all 0.5s ease; filter: grayscale(100%) sepia(20%) hue-rotate(180deg);
-        }
-        @media (min-width: 768px) {
-            .hero-img:hover { opacity: 1; filter: grayscale(0%); z-index: 20; transform: scale(1.05); border: 2px solid #D1A22E; }
-        }
-
-        /* ARENA CARDS */
-        .arena-card { transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); filter: grayscale(100%); }
-        .arena-card:hover { filter: grayscale(0%); transform: scale(1.02); border-color: #D1A22E; }
-
-        /* MOBILE SCROLL SNAP */
-        .mobile-snap-container { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-        .mobile-snap-item { scroll-snap-align: center; }
-
-        /* ANIMASI FLOAT UNTUK LOGO (BARU) */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        .animate-float { animation: float 4s ease-in-out infinite; }
-
-        /* PRELOADER */
-        #preloader {
-            position: fixed; inset: 0; background: #050505; z-index: 10000;
-            display: flex; justify-content: center; align-items: center; flex-direction: column;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- CUSTOM CURSOR -->
-    <div id="cursor"></div>
-
-    <!-- PRELOADER -->
-    <div id="preloader">
-        <div class="font-display text-4xl md:text-8xl font-bold text-ga-mustard mb-4 animate-pulse">GA26</div>
-        <div class="w-40 md:w-64 h-1 bg-gray-800 rounded overflow-hidden">
-            <div id="loader-bar" class="h-full bg-ga-red w-0"></div>
+    <!-- NAVBAR (Fixed Top) -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 nav-glass transition-all duration-300 py-6 px-6 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <img src="assets/images/logo-Go-Aection26.png" class="h-10 w-auto" alt="Logo">
+            <span class="font-bold text-xl tracking-tighter">GA<span class="text-ga-mustard">26</span></span>
         </div>
-    </div>
 
-    <!-- FLOATING NAV -->
-    <nav class="fixed bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-50 bg-ga-blue/20 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 md:px-8 md:py-4 flex gap-6 md:gap-8 shadow-[0_0_30px_rgba(23,70,139,0.3)] w-max max-w-[90%]">
-        <a href="#hero" class="hover-trigger font-display text-[8px] md:text-[10px] font-bold uppercase hover:text-ga-mustard transition-colors text-gray-300">Home</a>
-        <a href="#about" class="hover-trigger font-display text-[8px] md:text-[10px] font-bold uppercase hover:text-ga-teal transition-colors text-gray-300">About</a>
-        <a href="#horizontal-scroll" class="hover-trigger font-display text-[8px] md:text-[10px] font-bold uppercase hover:text-ga-red transition-colors text-gray-300">Compettion</a>
-        <a href="#footer" class="hover-trigger font-display text-[8px] md:text-[10px] font-bold uppercase hover:text-ga-orange transition-colors text-gray-300">Join</a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-gray-300">
+            <a href="#home" class="hover:text-white transition-colors">Home</a>
+            <a href="#about" class="hover:text-white transition-colors">About</a>
+            <a href="#lomba" class="hover:text-white transition-colors">Lomba</a>
+            <a href="#timeline" class="hover:text-white transition-colors">Jadwal</a>
+        </div>
+
+        <a href="#" class="hidden md:block px-6 py-2 border border-ga-mustard text-ga-mustard font-bold text-xs uppercase rounded-full hover:bg-ga-mustard hover:text-black transition-all">
+            Login Peserta
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="btn-menu" class="md:hidden text-2xl">☰</button>
     </nav>
 
-    <!-- MAIN CONTENT -->
-    <main class="w-full">
-
-        <!-- 1. HERO SECTION -->
-        <section id="hero" class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-void">
-            <!-- Background Blob -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-ga-blue blur-[100px] md:blur-[150px] opacity-30 rounded-full pointer-events-none"></div>
-
-            <!-- Parallax Images -->
-            <img src="/src/assets/images/flashback24/pembukaan2024.jpg" class="hero-img w-[120px] md:w-[300px] h-[90px] md:h-[200px] top-[15%] left-[5%] md:left-[10%] rotate-[-6deg]" data-speed="0.2">
-            <img src="/src/assets/images/flashback24/juaraumum2024.JPG" class="hero-img w-[140px] md:w-[350px] h-[100px] md:h-[250px] bottom-[15%] right-[5%] md:right-[10%] rotate-[3deg]" data-speed="0.3">
-            <img src="/src/assets/images/flashback24/juara24.jpeg" class="hero-img hidden md:block w-[250px] h-[300px] top-[10%] right-[15%] rotate-[12deg]" data-speed="0.1">
-            <img src="/src/assets/images/flashback24/fotobersama24.JPG" class="hero-img hidden md:block w-[280px] h-[180px] bottom-[20%] left-[10%] rotate-[-10deg]" data-speed="0.4">
-
-            <!-- Center Content -->
-            <div class="relative z-30 text-center px-4">
-                <div class="inline-block px-3 py-1 md:px-4 border border-ga-mustard rounded-full mb-4 md:mb-6 bg-ga-mustard/10 backdrop-blur-md">
-                    <p class="font-body text-[8px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] text-ga-mustard uppercase font-bold">SMK TI Bali Global Denpasar</p>
-                </div>
-                <h1 class="font-display text-[18vw] md:text-[15vw] leading-[0.8] font-bold uppercase tracking-tighter text-white drop-shadow-2xl">
-                    GA<span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500">26</span>
-                </h1>
-                <div class="mt-6 md:mt-8">
-                    <p class="font-body text-xs md:text-xl text-gray-300 max-w-xs md:max-w-lg mx-auto leading-relaxed">
-                        Convergence of <span class="text-ga-blue font-bold">Tech</span> & <span class="text-ga-red font-bold">Art</span>.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. ABOUT SECTION (DENGAN LOGO) -->
-        <section id="about" class="py-20 md:py-32 px-6 md:px-20 bg-void relative border-t border-ga-teal/20 overflow-hidden">
-
-            <div class="absolute left-[-5%] top-[10%] text-[20vw] font-display font-bold text-white/5 leading-none select-none pointer-events-none">ABT</div>
-
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center relative z-10">
-
-                <!-- Left: LOGO SHOWCASE (Holographic Style) -->
-                <div class="relative order-1 md:order-1 h-[300px] md:h-[500px] flex items-center justify-center">
-
-                    <!-- Tech Border Frame -->
-                    <div class="absolute inset-0 border border-ga-teal/20 rounded-xl bg-ga-blue/5 backdrop-blur-sm"></div>
-                    <!-- Sudut Emas -->
-                    <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-ga-mustard"></div>
-                    <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-ga-mustard"></div>
-                    <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-ga-mustard"></div>
-                    <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-ga-mustard"></div>
-
-                    <!-- Glowing Background -->
-                    <div class="absolute w-[150px] md:w-[200px] h-[150px] md:h-[200px] bg-ga-blue/40 blur-[80px] rounded-full animate-pulse"></div>
-
-                    <!-- THE LOGO (GANTI SRC NYA DI SINI) -->
-                    <!-- Pastikan file logo-Go-Aection26.png ada di folder yang sesuai -->
-                    <img src="/src/assets/images/logo-Go-Aection26.png"
-                         alt="Logo GA26"
-                         class="relative z-10 w-[50%] md:w-[60%] h-auto object-contain drop-shadow-[0_0_30px_rgba(23,70,139,0.6)] animate-float hover:scale-110 transition-transform duration-500">
-
-                    <!-- Floating Badge -->
-                    <div class="absolute bottom-6 right-6 bg-black/80 backdrop-blur border-r-2 border-ga-red px-3 py-1 md:px-4 md:py-2 text-right">
-                        <span class="block text-[8px] md:text-[10px] text-gray-400 font-mono">SYSTEM ID</span>
-                        <span class="block text-xs md:text-sm text-white font-display font-bold text-ga-red">GA26_CORE</span>
-                    </div>
-                </div>
-
-                <!-- Right: Text Content -->
-                <div class="order-2 md:order-2">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-2 h-2 bg-ga-red animate-pulse"></div>
-                        <span class="text-ga-mustard font-mono text-xs tracking-widest">/// MISSION BRIEFING</span>
-                    </div>
-
-                    <h2 class="font-display text-4xl md:text-6xl font-bold uppercase text-white mb-6 leading-none">
-                        Beyond <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-ga-blue to-ga-teal">Limits.</span>
-                    </h2>
-
-                    <p class="font-body text-sm md:text-lg text-gray-400 leading-relaxed mb-6">
-                        <strong class="text-white">Go-Aection 26</strong> adalah panggung pembuktian bagi generasi cerdas yang mampu menggabungkan logika algoritma dengan estetika seni.
-                    </p>
-                    <p class="font-body text-sm md:text-lg text-gray-400 leading-relaxed mb-8">
-                        Diinisiasi oleh <span class="text-ga-mustard border-b border-ga-mustard pb-0.5">SMK TI Bali Global Denpasar</span>, event ini menantang sekolah di seluruh Indonesia untuk berinovasi.
-                    </p>
-
-                    <div class="grid grid-cols-2 gap-6 border-t border-white/10 pt-6">
-                        <div>
-                            <span class="block font-display text-2xl md:text-4xl text-white">3+</span>
-                            <span class="text-[10px] md:text-xs text-ga-teal font-mono uppercase">Categories</span>
-                        </div>
-                        <div>
-                            <span class="block font-display text-2xl md:text-4xl text-white">∞</span>
-                            <span class="text-[10px] md:text-xs text-ga-teal font-mono uppercase">Possibilities</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 3. ARENA SECTION -->
-        <section id="horizontal-scroll" class="h-auto md:h-screen w-full bg-void relative flex flex-col justify-center border-t border-ga-teal/20 py-20 md:py-0 overflow-hidden">
-            <div class="px-6 md:absolute md:top-10 md:left-10 z-20 mix-blend-difference mb-10 md:mb-0">
-                <span class="text-ga-mustard font-mono text-[10px] tracking-widest block mb-2">/// SELECT DIVISION</span>
-                <h2 class="font-display text-4xl md:text-6xl font-bold uppercase text-white leading-none">The <br> Arena</h2>
-            </div>
-
-            <div id="scroll-wrapper" class="w-full">
-                <div id="scroll-container" class="mobile-snap-container flex gap-4 md:gap-10 px-6 md:pl-[20vw] md:pr-[10vw] items-center h-auto md:h-full pb-10 md:pb-0">
-
-                    <!-- Card 1 -->
-                    <div class="panel mobile-snap-item w-[85vw] md:w-[25vw] h-[50vh] md:h-[65vh] flex-shrink-0 relative group hover-trigger cursor-pointer arena-card border border-ga-teal/30 bg-[#0a0a0a] overflow-hidden rounded-xl">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-50">
-                        <div class="absolute inset-0 bg-gradient-to-t from-ga-blue via-black/80 to-transparent opacity-80"></div>
-                        <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
-                            <div class="flex justify-between items-start"><span class="font-display text-4xl text-white/20">01</span><div class="w-2 h-2 bg-ga-mustard rounded-full animate-pulse"></div></div>
-                            <div>
-                                <h3 class="font-display text-2xl md:text-3xl uppercase text-white mb-2 leading-none">Web <br> Mastery</h3>
-                                <p class="font-body text-xs text-gray-400 mb-6 line-clamp-2">Lomba desain & fungsi web.</p>
-                                <button class="w-full py-3 border border-ga-teal text-ga-teal font-display text-xs uppercase hover:bg-ga-teal hover:text-white transition-all">Details</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="panel mobile-snap-item w-[85vw] md:w-[25vw] h-[50vh] md:h-[65vh] flex-shrink-0 relative group hover-trigger cursor-pointer arena-card border border-ga-teal/30 bg-[#0a0a0a] overflow-hidden rounded-xl">
-                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-50">
-                        <div class="absolute inset-0 bg-gradient-to-t from-ga-red via-black/80 to-transparent opacity-80"></div>
-                        <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
-                            <div class="flex justify-between items-start"><span class="font-display text-4xl text-white/20">02</span><div class="w-2 h-2 bg-ga-red rounded-full animate-pulse"></div></div>
-                            <div>
-                                <h3 class="font-display text-2xl md:text-3xl uppercase text-white mb-2 leading-none">Sumo <br> Battle</h3>
-                                <p class="font-body text-xs text-gray-400 mb-6 line-clamp-2">Pertarungan robot fisik.</p>
-                                <button class="w-full py-3 border border-ga-red text-ga-red font-display text-xs uppercase hover:bg-ga-red hover:text-white transition-all">Details</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="panel mobile-snap-item w-[85vw] md:w-[25vw] h-[50vh] md:h-[65vh] flex-shrink-0 relative group hover-trigger cursor-pointer arena-card border border-ga-teal/30 bg-[#0a0a0a] overflow-hidden rounded-xl">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-50">
-                        <div class="absolute inset-0 bg-gradient-to-t from-ga-orange via-black/80 to-transparent opacity-80"></div>
-                        <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
-                            <div class="flex justify-between items-start"><span class="font-display text-4xl text-white/20">03</span><div class="w-2 h-2 bg-ga-orange rounded-full animate-pulse"></div></div>
-                            <div>
-                                <h3 class="font-display text-2xl md:text-3xl uppercase text-white mb-2 leading-none">Digital <br> Poster</h3>
-                                <p class="font-body text-xs text-gray-400 mb-6 line-clamp-2">Kreasi visual futuristik.</p>
-                                <button class="w-full py-3 border border-ga-orange text-ga-orange font-display text-xs uppercase hover:bg-ga-orange hover:text-white transition-all">Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. FOOTER -->
-        <footer id="footer" class="relative bg-ga-blue text-white overflow-hidden pt-16 md:pt-20 pb-24 md:pb-32">
-            <div class="max-w-[1400px] mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10">
-                <div class="md:col-span-4 flex flex-col justify-between h-full">
-                    <div>
-                        <h4 class="font-mono text-ga-mustard text-xs tracking-widest mb-6">/// NAVIGATION</h4>
-                        <ul class="space-y-4 font-display text-lg md:text-xl uppercase">
-                            <li><a href="#hero" class="hover:text-ga-mustard transition-colors hover-trigger">Home</a></li>
-                            <li><a href="#about" class="hover:text-ga-mustard transition-colors hover-trigger">About</a></li>
-                            <li><a href="#horizontal-scroll" class="hover:text-ga-mustard transition-colors hover-trigger">Arena</a></li>
-                        </ul>
-                    </div>
-                    <div class="mt-8 md:mt-12">
-                         <h4 class="font-mono text-ga-mustard text-xs tracking-widest mb-4">/// CONTACT</h4>
-                         <p class="font-body text-sm text-white/70">
-                            SMK TI Bali Global Denpasar<br>Jl. Tukad Citarum No. 44
-                         </p>
-                    </div>
-                </div>
-                <div class="md:col-span-8 flex flex-col items-start md:items-end justify-center mt-8 md:mt-0">
-                    <p class="font-body text-xs md:text-sm uppercase tracking-[0.3em] mb-4 text-white/60">Ready to compete?</p>
-                    <button onclick="openModal()" class="group relative hover-trigger w-full md:w-auto text-left md:text-right">
-                        <h2 class="font-display text-[15vw] md:text-[12vw] leading-[0.8] font-bold uppercase text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-ga-mustard group-hover:to-ga-red transition-all duration-500">
-                            REGISTER
-                        </h2>
-                        <div class="w-full h-1 md:h-2 bg-white mt-2 group-hover:bg-ga-mustard transition-colors duration-500"></div>
-                        <span class="absolute top-0 right-[-10px] md:right-[-20px] text-[10px] md:text-xs font-mono text-ga-mustard opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">↗ NOW</span>
-                    </button>
-                </div>
-            </div>
-            <div class="absolute bottom-0 left-0 w-full bg-black py-2 md:py-3 border-t border-ga-teal/30">
-                <div class="marquee-track font-mono text-[10px] md:text-xs text-ga-teal uppercase tracking-widest flex whitespace-nowrap overflow-hidden">
-                    <div class="animate-[scroll_20s_linear_infinite] flex">
-                        <span class="mx-8">Go-Aection 2026</span>
-                        <span class="mx-8">Digital Art Smart Generation</span>
-                        <span class="mx-8">SMK TI Bali Global Denpasar</span>
-                        <span class="mx-8">Technology & Art</span>
-                        <span class="mx-8">Innovation</span>
-                    </div>
-                </div>
-            </div>
-            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
-        </footer>
-
-    </main>
-
-    <!-- MODAL -->
-    <div id="modal" class="fixed inset-0 bg-ga-blue/95 z-[9999] hidden flex items-center justify-center p-4 backdrop-blur-md">
-        <button onclick="closeModal()" class="absolute top-6 right-6 md:top-10 md:right-10 text-3xl md:text-4xl text-white font-display hover:text-ga-mustard hover-trigger">✕</button>
-        <div class="max-w-xl w-full border border-white/20 p-6 md:p-12 relative bg-black/20 rounded-lg">
-            <h2 class="font-display text-3xl md:text-5xl text-white mb-2">Initialize</h2>
-            <p class="font-mono text-ga-teal text-xs mb-8">/// SECURE REGISTRATION PROTOCOL</p>
-            <form class="space-y-6">
-                <div>
-                    <label class="block font-mono text-[10px] text-ga-mustard mb-2">FULL NAME</label>
-                    <input type="text" class="w-full bg-transparent border-b border-white/30 py-2 text-lg md:text-xl font-body text-white focus:outline-none focus:border-ga-mustard transition-colors">
-                </div>
-                <div>
-                    <label class="block font-mono text-[10px] text-ga-mustard mb-2">ORIGIN SCHOOL</label>
-                    <input type="text" class="w-full bg-transparent border-b border-white/30 py-2 text-lg md:text-xl font-body text-white focus:outline-none focus:border-ga-mustard transition-colors">
-                </div>
-                <button type="button" class="w-full bg-white text-ga-blue font-display font-bold text-lg py-4 hover:bg-ga-mustard hover:text-black transition-colors mt-4 hover-trigger">TRANSMIT DATA</button>
-            </form>
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="hidden fixed top-20 left-0 w-full bg-black/95 backdrop-blur-xl z-40 p-6 border-b border-white/10">
+        <div class="flex flex-col gap-6 text-center text-sm font-bold uppercase">
+            <a href="#home">Home</a>
+            <a href="#lomba">Lomba</a>
+            <a href="#timeline">Jadwal</a>
         </div>
     </div>
 
-    <!-- SCRIPTS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <!-- HERO SECTION -->
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative pt-20">
+        <!-- Glow Effects -->
+        <div class="glow-blob w-[300px] h-[300px] bg-ga-blue top-20 left-10"></div>
+        <div class="glow-blob w-[400px] h-[400px] bg-ga-red bottom-20 right-10"></div>
 
-    <script>
-        // 1. PRELOADER
-        const loaderBar = document.getElementById('loader-bar');
-        const preloader = document.getElementById('preloader');
-        let width = 0;
-        const interval = setInterval(() => {
-            width += Math.random() * 10;
-            if (width > 100) width = 100;
-            loaderBar.style.width = width + '%';
-            if (width === 100) {
-                clearInterval(interval);
-                gsap.to(preloader, { yPercent: -100, duration: 1, ease: "power4.inOut", delay: 0.5 });
-            }
-        }, 100);
+        <div class="relative z-10 max-w-4xl animate-on-scroll">
+            <span class="text-ga-mustard font-mono text-xs tracking-[0.3em] uppercase mb-4 block">SMK TI Bali Global Denpasar</span>
 
-        // 2. SMOOTH SCROLL
-        const lenis = new Lenis();
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-        gsap.ticker.lagSmoothing(0);
+            <h1 class="text-5xl md:text-8xl font-bold uppercase leading-none mb-6">
+                Go-Aection <br> <span class="text-gradient">2026</span>
+            </h1>
 
-        // 3. GSAP ANIMATIONS
-        gsap.registerPlugin(ScrollTrigger);
+            <p class="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                Digital Art Smart Generation. Tunjukkan bakatmu dalam ajang kompetisi teknologi dan seni paling bergengsi tahun ini.
+            </p>
 
-        if (window.innerWidth > 768) {
-            gsap.utils.toArray(".hero-img").forEach((img, i) => {
-                gsap.to(img, {
-                    yPercent: -20 * (i + 1),
-                    ease: "none",
-                    scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true }
-                });
-            });
-        }
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#lomba" class="px-8 py-4 bg-ga-mustard text-black font-bold uppercase tracking-wider rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(209,162,46,0.4)]">
+                    Daftar Sekarang
+                </a>
+                <a href="#about" class="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-wider rounded hover:border-ga-mustard hover:text-ga-mustard transition-all">
+                    Panduan Lomba
+                </a>
+            </div>
+        </div>
+    </section>
 
-        ScrollTrigger.matchMedia({
-            "(min-width: 768px)": function() {
-                let container = document.querySelector("#scroll-container");
-                container.classList.remove('mobile-snap-container');
-                gsap.to(container, {
-                    x: () => -(container.scrollWidth - document.documentElement.clientWidth) + "px",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: "#horizontal-scroll",
-                        pin: true,
-                        scrub: 1,
-                        end: () => "+=" + container.offsetWidth
-                    }
-                });
-            }
-        });
+    <!-- STATS (Kotak Info) -->
+    <section class="py-10 border-y border-white/10 bg-black/50 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center animate-on-scroll">
+            <div>
+                <h3 class="text-3xl font-bold text-white">4</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">Kategori</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold text-white">13+</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">Cabang Lomba</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold text-white">50jt</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">Total Hadiah</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold text-white">FEB</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">Pelaksanaan</p>
+            </div>
+        </div>
+    </section>
 
-        if (window.matchMedia("(hover: hover)").matches) {
-            const cursor = document.getElementById('cursor');
-            document.addEventListener('mousemove', (e) => {
-                gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
-            });
-            document.querySelectorAll('.hover-trigger').forEach(trigger => {
-                trigger.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-                trigger.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
-            });
-        }
+    <!-- KATEGORI LOMBA (Grid Card) -->
+    <section id="lomba" class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-16 animate-on-scroll">
+                <div>
+                    <span class="text-ga-mustard text-xs tracking-widest uppercase">The Arena</span>
+                    <h2 class="text-4xl md:text-5xl font-bold uppercase mt-2">Kategori <br> Lomba</h2>
+                </div>
+                <div class="hidden md:block w-24 h-1 bg-gradient-to-r from-ga-mustard to-transparent"></div>
+            </div>
 
-        const modal = document.getElementById('modal');
-        window.openModal = () => {
-            modal.classList.remove('hidden');
-            gsap.fromTo(modal.querySelector('div'), {y: 50, opacity: 0}, {y: 0, opacity: 1, duration: 0.5});
-        };
-        window.closeModal = () => {
-            gsap.to(modal.querySelector('div'), {
-                y: 50, opacity: 0, duration: 0.3,
-                onComplete: () => modal.classList.add('hidden')
-            });
-        };
-    </script>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Card 1: IT -->
+                <div class="glass-card p-8 rounded-2xl relative overflow-hidden group animate-on-scroll">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                        <svg class="w-12 h-12 text-ga-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <span class="text-ga-blue font-bold text-sm tracking-widest">01</span>
+                    <h3 class="text-2xl font-bold uppercase mt-4 mb-2">IT (WEP)</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-6">Word, Excel, PowerPoint untuk tingkat SMP/MTS.</p>
+                    <a href="#" class="text-xs font-bold uppercase text-white border-b border-ga-blue pb-1 hover:text-ga-blue transition-colors">Detail Lomba →</a>
+                </div>
+
+                <!-- Card 2: Robotik -->
+                <div class="glass-card p-8 rounded-2xl relative overflow-hidden group animate-on-scroll">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                        <svg class="w-12 h-12 text-ga-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                    </div>
+                    <span class="text-ga-red font-bold text-sm tracking-widest">02</span>
+                    <h3 class="text-2xl font-bold uppercase mt-4 mb-2">Robotik</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-6">Sumobot Battle. Adu ketangkasan robot fisik.</p>
+                    <a href="#" class="text-xs font-bold uppercase text-white border-b border-ga-red pb-1 hover:text-ga-red transition-colors">Detail Lomba →</a>
+                </div>
+
+                <!-- Card 3: Kesenian -->
+                <div class="glass-card p-8 rounded-2xl relative overflow-hidden group animate-on-scroll">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                        <svg class="w-12 h-12 text-ga-mustard" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <span class="text-ga-mustard font-bold text-sm tracking-widest">03</span>
+                    <h3 class="text-2xl font-bold uppercase mt-4 mb-2">Kesenian</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-6">Tari Tradisional & Sketsa Ogoh-ogoh.</p>
+                    <a href="#" class="text-xs font-bold uppercase text-white border-b border-ga-mustard pb-1 hover:text-ga-mustard transition-colors">Detail Lomba →</a>
+                </div>
+
+                <!-- Card 4: Rohis -->
+                <div class="glass-card p-8 rounded-2xl relative overflow-hidden group animate-on-scroll">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                        <svg class="w-12 h-12 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <span class="text-teal-500 font-bold text-sm tracking-widest">04</span>
+                    <h3 class="text-2xl font-bold uppercase mt-4 mb-2">Rohis</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-6">Kaligrafi, Tartil, Pidato & Tahfidz Quran.</p>
+                    <a href="#" class="text-xs font-bold uppercase text-white border-b border-teal-500 pb-1 hover:text-teal-500 transition-colors">Detail Lomba →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE (Simple Vertical) -->
+    <section id="timeline" class="py-20 px-6 bg-white/5 border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold uppercase text-center mb-16 animate-on-scroll">Jadwal <span class="text-ga-blue">Penting</span></h2>
+
+            <div class="space-y-8 animate-on-scroll">
+                <!-- Item 1 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="text-right w-24 pt-1">
+                        <span class="block text-2xl font-bold text-ga-mustard">05</span>
+                        <span class="text-xs text-gray-500">FEB 2026</span>
+                    </div>
+                    <div class="relative border-l border-white/20 pl-8 pb-2">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-ga-mustard rounded-full group-hover:scale-150 transition-transform shadow-[0_0_10px_#D1A22E]"></div>
+                        <h3 class="text-xl font-bold">Technical Meeting</h3>
+                        <p class="text-gray-400 text-sm mt-1">Dilaksanakan secara Hybrid (Online & Offline).</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="text-right w-24 pt-1">
+                        <span class="block text-2xl font-bold text-ga-red">07</span>
+                        <span class="text-xs text-gray-500">FEB 2026</span>
+                    </div>
+                    <div class="relative border-l border-white/20 pl-8 pb-2">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-ga-red rounded-full group-hover:scale-150 transition-transform shadow-[0_0_10px_#D12E17]"></div>
+                        <h3 class="text-xl font-bold">Batas Pendaftaran</h3>
+                        <p class="text-gray-400 text-sm mt-1">Penutupan pendaftaran semua kategori lomba.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="text-right w-24 pt-1">
+                        <span class="block text-2xl font-bold text-white">13</span>
+                        <span class="text-xs text-gray-500">FEB 2026</span>
+                    </div>
+                    <div class="relative border-l border-white/20 pl-8 pb-2">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-white rounded-full group-hover:scale-150 transition-transform"></div>
+                        <h3 class="text-xl font-bold">Pelaksanaan Lomba</h3>
+                        <p class="text-gray-400 text-sm mt-1">Main Event di SMK TI Bali Global Denpasar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-white/10 text-center">
+        <div class="animate-on-scroll">
+            <h2 class="text-2xl font-bold uppercase mb-4">Go-Aection 2026</h2>
+            <p class="text-gray-500 text-sm mb-8">Always Ahead. Digital Art Smart Generation.</p>
+            <div class="flex justify-center gap-6 text-sm text-ga-mustard font-bold uppercase tracking-wider">
+                <a href="#" class="hover:text-white">Instagram</a>
+                <a href="#" class="hover:text-white">Website Sekolah</a>
+                <a href="#" class="hover:text-white">Contact</a>
+            </div>
+            <p class="text-gray-700 text-xs mt-10">© 2026 OSIS SMK TI Bali Global Denpasar.</p>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="/src/js/main.js"></script>
 </body>
 </html>
