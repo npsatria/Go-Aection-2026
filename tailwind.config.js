@@ -8,17 +8,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Palet Warna Resmi Go-Aection 2026 (Sesuai HTML)
-        'ga-blue': '#17468B',     // Biru Utama
-        'ga-red': '#D12E17',      // Merah Aksen
-        'ga-orange': '#D17417',   // Oranye
-        'ga-mustard': '#D1A22E',  // Kuning Mustard/Gold
-        'ga-teal': '#467474',     // Hijau Teal
-        'void': '#050505',        // Hitam Background
+            'ga-blue': '#17468B',     // Biru Utama
+            'ga-red': '#D12E17',      // Merah
+            'ga-orange': '#D17417',   // Oranye
+            'ga-mustard': '#D1A22E',  // Kuning Mustard
+            'ga-teal': '#467474',     // Hijau Teal
+            'void': '#050505',        // Hitam Background Dasar
+            'card': '#0F0F0F'         // Warna Kartu
       },
       fontFamily: {
-        'display': ['Syncopate', 'sans-serif'],    // Font Judul (Futuristik Lebar)
-        'body': ['Space Grotesk', 'sans-serif'],   // Font Paragraf (Teknikal)
+            'display': ['Syncopate', 'sans-serif'],
+            'body': ['Space Grotesk', 'sans-serif'],
       },
     },
   },
