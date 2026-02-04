@@ -46,9 +46,68 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, 1000);
 
-    /* --- 3. ANIMASI GSAP --- */
-    if (typeof gsap !== 'undefined') {
-        gsap.from(".reveal-left", { x: -30, opacity: 0, duration: 1, ease: "power3.out" });
-        gsap.from(".reveal-right", { x: 30, opacity: 0, duration: 1, delay: 0.3, ease: "power3.out" });
+    /* --- 4. MOBILE MENU (GSAP Smooth) --- */
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenuBtn = mobileMenu ? mobileMenu.querySelector('button') : null;
+
+    if (mobileMenuBtn && mobileMenu) {
+        const menuLinks = mobileMenu.querySelectorAll('a');
+
+        const openMenu = () => {
+            mobileMenu.classList.add('active');
+            gsap.to(mobileMenu, {
+                opacity: 1,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+            gsap.to(menuLinks, {
+                y: 0,
+                opacity: 1,
+                stagger: 0.1,
+                duration: 0.5,
+                delay: 0.2,
+                ease: "back.out(1.7)"
+            });
+        };
+
+        const closeMenu = () => {
+            gsap.to(menuLinks, {
+                y: 20,
+                opacity: 0,
+                stagger: 0.05,
+                duration: 0.3,
+                ease: "power2.in"
+            });
+            gsap.to(mobileMenu, {
+                opacity: 0,
+                duration: 0.4,
+                delay: 0.2,
+                ease: "power2.in",
+                onComplete: () => {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        };
+
+        mobileMenuBtn.onclick = openMenu;
+        if (closeMenuBtn) closeMenuBtn.onclick = closeMenu;
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    }
+    // 6. NAVBAR SCROLL EFFECT (Transparent -> Dark)
+    const navbar = document.querySelector('.nav-sticky');
+    if (navbar) {
+        function handleScroll() {
+            if (window.scrollY > 20) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        }
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Init check
     }
 });

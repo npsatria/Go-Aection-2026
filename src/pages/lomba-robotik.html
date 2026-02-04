@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GA26 | Detail Lomba Robotik</title>
     <link rel="shortcut icon" href="../../assets/images/logo-Go-Aection26.png">
+    <link rel="shortcut icon" href="/src/assets/images/logo-Go-Aection26.png" type="image/x-icon">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Syncopate:wght@700&display=swap"
-        rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,13 +20,14 @@
                         'void': '#050505'
                     },
                     fontFamily: {
-                        'display': ['Syncopate', 'sans-serif'],
-                        'body': ['Space Grotesk', 'sans-serif'],
+                        'display': ['Poppins', 'sans-serif'],
+                        'body': ['Montserrat', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <link rel="stylesheet" href="/src/css/style.css">
     <link rel="stylesheet" href="/src/css/detail.css">
 </head>
 
@@ -37,29 +37,95 @@
     <div class="ambient-glow"
         style="background: radial-gradient(circle at 50% 50%, rgba(225, 29, 72, 0.15) 0%, transparent 50%);"></div>
 
-    <nav class="fixed top-6 left-6 z-50">
-        <a href="/index.html"
-            class="flex items-center gap-3 bg-black/40 backdrop-blur border border-white/20 px-6 py-3 rounded-full hover:bg-white hover:text-black transition group shadow-xl">
-            <span class="font-bold group-hover:-translate-x-1 transition">←</span>
-            <span class="text-xs font-bold uppercase tracking-widest">KEMBALI</span>
-        </a>
+    <!-- NAVBAR PREMIUM -->
+    <!-- NAVBAR PREMIUM (Fixed Distributional Style) -->
+    <nav id="main-nav" class="nav-sticky">
+        <div class="nav-container">
+            <a href="/index.html" class="flex items-center gap-3">
+                <img src="/src/assets/images/logo-Go-Aection26.png"
+                    class="h-8 md:h-9 w-auto hover:rotate-12 transition duration-500" alt="Logo">
+                <span class="font-bold text-lg md:text-xl tracking-tight text-white uppercase tracking-tighter">GA<span
+                        class="text-ga-mustard">26</span></span>
+            </a>
+
+            <div class="hidden md:flex gap-8 items-center">
+                <a href="/index.html#hero" class="nav-link">Beranda</a>
+                <a href="/index.html#about" class="nav-link">Tentang Kami</a>
+
+                <!-- Navbar Dropdown Lomba -->
+                <div class="relative group py-2">
+                    <button class="nav-link flex items-center gap-1 text-white transition">
+                        Lomba
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Content -->
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-56 bg-[#0a0a09]/95 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-3 group-hover:translate-y-0 transition-all duration-300 z-[100] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                        <div class="p-2 grid grid-cols-1 gap-1">
+                            <a href="/src/pages/lomba-it.html"
+                                class="flex items-center gap-3 px-4 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all group">
+                                IT (WEP)
+                            </a>
+                            <a href="/src/pages/lomba-robotik.html"
+                                class="flex items-center gap-3 px-4 py-3 text-sm text-white bg-white/5 transition-all group border-t border-white/5">
+                                Robotik
+                            </a>
+                            <a href="/src/pages/lomba-kesenian.html"
+                                class="flex items-center gap-3 px-4 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all group border-t border-white/5">
+                                Kesenian
+                            </a>
+                            <a href="/src/pages/lomba-rohis.html"
+                                class="flex items-center gap-3 px-4 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/10 transition-all group border-t border-white/5 rounded-b-xl">
+                                Rohis
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/src/pages/kontak.html" class="nav-link">Kontak Personal</a>
+            </div>
+
+            <a href="/index.html#registration"
+                class="hidden md:inline-block px-5 py-2 text-white font-mono text-[10px] bg-white/5 border border-white/20 hover:bg-white/10 hover:border-white/40 transition-all uppercase tracking-widest rounded-sm">
+                DAFTAR SEKARANG
+            </a>
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-white">☰</button>
+        </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 bg-black/95 z-[200] flex flex-col items-center justify-center gap-8 text-2xl font-bold backdrop-blur-xl">
+        <button onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            class="absolute top-10 right-10 text-white text-4xl">&times;</button>
+        <a href="/index.html#hero" class="hover:text-ga-mustard"
+            onclick="document.getElementById('mobile-menu').classList.add('hidden')">Beranda</a>
+        <a href="/index.html#about" class="hover:text-ga-mustard"
+            onclick="document.getElementById('mobile-menu').classList.add('hidden')">Tentang Kami</a>
+        <a href="/src/pages/kontak.html" class="hover:text-ga-mustard">Kontak Personal</a>
+        <a href="/index.html#registration" class="hover:text-ga-mustard"
+            onclick="document.getElementById('mobile-menu').classList.add('hidden')">Lomba</a>
+    </div>
 
     <main class="min-h-screen max-w-7xl mx-auto px-6 pt-32 pb-20 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
             <div class="lg:col-span-8 space-y-10 reveal-left">
 
-                <div>
+                <div class="reveal-left">
                     <span
-                        class="bg-ga-red/20 border border-ga-red/30 text-ga-red px-3 py-1 rounded text-xs font-bold uppercase tracking-wider mb-4 inline-block">Kategori:
+                        class="bg-ga-red/20 border border-ga-red/30 text-ga-red px-3 py-1 rounded text-[10px] md:text-xs font-bold uppercase tracking-wider mb-4 inline-block">Kategori:
                         UMUM</span>
                     <h1
-                        class="text-3xl sm:text-5xl md:text-7xl font-display font-bold uppercase leading-none mb-4 text-white">
-                        ROBOT <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-ga-red to-white">SUMOBOT</span>
+                        class="text-3xl sm:text-4xl md:text-6xl font-display font-bold uppercase leading-[1.1] mb-6 tracking-tighter text-white drop-shadow-[0_0_15px_rgba(209,46,23,0.5)]">
+                        ROBOTIK (SUMOBOT)
                     </h1>
-                    <p class="text-xl text-gray-400 max-w-2xl border-l-4 border-ga-red pl-6">
+                    <p class="text-lg md:text-xl text-gray-400 max-w-2xl border-l-4 border-ga-red pl-6 leading-relaxed">
                         Uji ketangguhan mekanik dan strategi algoritma robotmu dalam arena pertarungan Sumobot yang
                         intens.
                     </p>
@@ -71,7 +137,7 @@
                     </div>
                     <img src="/src/assets/images/robotik.JPG"
                         class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
-                        alt="Banner Robotik">
+                        alt="Spanduk Robotik">
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -85,7 +151,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white">Pendaftaran</h4>
-                            <p class="text-sm text-gray-400">Deadline: 7 Feb 2026</p>
+                            <p class="text-sm text-gray-400">Batas Akhir: 7 Feb 2026</p>
                         </div>
                     </div>
 
@@ -134,8 +200,7 @@
                 </div>
 
                 <div class="pt-8">
-                    <h3 class="font-display text-2xl mb-6 text-white border-b border-white/10 pb-4">INFORMASI LENGKAP
-                    </h3>
+                    <h3 class="font-display text-2xl mb-6 text-white border-b border-white/10 pb-4">DETAIL LOMBA</h3>
 
                     <div class="accordion-item">
                         <div class="accordion-header py-5 flex justify-between items-center group">
@@ -193,7 +258,7 @@
 
             <div class="lg:col-span-4 reveal-right">
                 <div
-                    class="sidebar-card sticky top-28 bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl">
+                    class="sidebar-card sticky top-28 bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-3xl">
                     <div class="text-center mb-8">
                         <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Penutupan Pendaftaran
                         </p>
@@ -214,11 +279,12 @@
                     </div>
 
                     <div class="space-y-4">
-                        <a href="https://forms.google.com/REG_ROBOTIK" target="_blank"
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdr4wfmVbUZ_xCjnVIjJ32nRWGi5P7T6yEOkG5ZsWiIsoUjNQ/viewform"
+                            target="_blank"
                             class="block w-full py-4 text-center bg-ga-red hover:bg-red-700 text-white font-bold rounded-xl transition shadow-lg uppercase text-xs tracking-widest">DAFTAR
                             SEKARANG</a>
-                        <a href="#"
-                            class="block w-full py-4 text-center border border-white/20 rounded-xl font-bold uppercase hover:bg-white hover:text-black transition text-xs tracking-widest text-gray-300">Download
+                        <a href="/src/assets/juknis/Syarat & ketentuan lomba sumobot.pdf" target="_blank"
+                            class="block w-full py-4 text-center border border-white/20 rounded-xl font-bold uppercase hover:bg-white hover:text-black transition text-xs tracking-widest text-gray-300">Unduh
                             Juknis</a>
                     </div>
 
@@ -260,8 +326,145 @@
         </div>
     </main>
 
+    <!-- 5. FOOTER (Pusat Informasi) -->
+    <footer id="cp" class="pt-24 pb-12 border-t border-white/5 bg-[#020203] relative overflow-hidden">
+        <div
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[400px] bg-ga-blue/5 blur-[120px] rounded-full pointer-events-none">
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10 reveal-up">
+            <!-- Brand & Info -->
+            <div class="space-y-6">
+                <img src="/src/assets/images/logo-Go-Aection26.png" class="h-20 w-auto" alt="Logo GA26">
+                <div class="space-y-3">
+                    <p class="text-white font-bold text-sm tracking-tight leading-snug">
+                        SMK TI Bali Global Denpasar<br>
+                        <span class="text-gray-500 font-medium">Generasi Cerdas Seni Digital</span>
+                    </p>
+                    <p class="text-xs text-gray-500 leading-relaxed max-w-xs">
+                        Jl. Tukad Citarum No. 44, Panjer, Denpasar Selatan, Kota Denpasar, Bali 80225.
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Email: info@smktibaliglobal.sch.id
+                    </p>
+                </div>
+            </div>
+
+            <!-- Daftar Lomba -->
+            <div class="space-y-6">
+                <h4
+                    class="text-white font-bold text-sm uppercase tracking-widest relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-8 after:h-0.5 after:bg-ga-mustard">
+                    Lomba
+                </h4>
+                <ul class="space-y-3 text-[13px] text-gray-400">
+                    <li><a href="/src/pages/lomba-it.html"
+                            class="hover:text-ga-blue transition-all flex items-center gap-2 hover:translate-x-1"><span>•</span>
+                            Teknologi Informasi (WEP)</a></li>
+                    <li><a href="/src/pages/lomba-robotik.html"
+                            class="hover:text-ga-red transition-all flex items-center gap-2 hover:translate-x-1"><span>•</span>
+                            Robotika (Sumobot)</a></li>
+                    <li><a href="/src/pages/lomba-kesenian.html"
+                            class="hover:text-ga-orange transition-all flex items-center gap-2 hover:translate-x-1"><span>•</span>
+                            Kesenian & Budaya</a></li>
+                    <li><a href="/src/pages/lomba-rohis.html"
+                            class="hover:text-ga-teal transition-all flex items-center gap-2 hover:translate-x-1"><span>•</span>
+                            Religi & Rohis</a></li>
+                </ul>
+            </div>
+
+            <!-- Navigasi -->
+            <div class="space-y-6">
+                <h4
+                    class="text-white font-bold text-sm uppercase tracking-widest relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-8 after:h-0.5 after:bg-ga-mustard">
+                    Navigasi
+                </h4>
+                <ul class="space-y-3 text-[13px] text-gray-400">
+                    <li><a href="/index.html#hero"
+                            class="hover:text-white transition-all hover:translate-x-1 inline-block">Beranda</a></li>
+                    <li><a href="/index.html#about"
+                            class="hover:text-white transition-all hover:translate-x-1 inline-block">Tentang Kami</a>
+                    </li>
+                    <li><a href="/src/pages/kontak.html"
+                            class="hover:text-white transition-all hover:translate-x-1 inline-block">Kontak Personal</a>
+                    </li>
+                    <li><a href="/index.html#registration"
+                            class="hover:text-ga-mustard transition-all hover:translate-x-1 inline-block font-bold">Daftar
+                            Sekarang</a></li>
+                </ul>
+            </div>
+
+            <!-- Hubungi Kami -->
+            <div class="space-y-6">
+                <h4
+                    class="text-white font-bold text-sm uppercase tracking-widest relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-8 after:h-0.5 after:bg-ga-mustard">
+                    Kontak
+                </h4>
+                <div class="space-y-4 text-[13px] text-gray-400">
+                    <a href="https://wa.me/6282247033044" target="_blank"
+                        class="block group transition-all duration-300 hover:translate-x-1">
+                        <span class="block text-white font-bold mb-0.5 group-hover:text-ga-blue transition-colors">Pak
+                            Gung De (IT)</span>
+                        <span class="group-hover:text-gray-200 transition-colors">+62 822-4703-3044</span>
+                    </a>
+                    <a href="https://wa.me/62831117769593" target="_blank"
+                        class="block group transition-all duration-300 hover:translate-x-1">
+                        <span class="block text-white font-bold mb-0.5 group-hover:text-ga-red transition-colors">Pak
+                            Gus Maha (Robotik)</span>
+                        <span class="group-hover:text-gray-200 transition-colors">+62 831-1177-6959</span>
+                    </a>
+                    <a href="https://wa.me/6281239588346" target="_blank"
+                        class="block group transition-all duration-300 hover:translate-x-1">
+                        <span class="block text-white font-bold mb-0.5 group-hover:text-ga-orange transition-colors">Bu
+                            Ida Dayu (Seni)</span>
+                        <span class="group-hover:text-gray-200 transition-colors">+62 812-3958-8346</span>
+                    </a>
+                    <a href="https://wa.me/6281805444461" target="_blank"
+                        class="block group transition-all duration-300 hover:translate-x-1">
+                        <span class="block text-white font-bold mb-0.5 group-hover:text-ga-teal transition-colors">Bu
+                            Ainul (Rohis)</span>
+                        <span class="group-hover:text-gray-200 transition-colors">+62 818-0544-4461</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div
+            class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 flex flex-col items-center gap-8 relative z-20">
+            <!-- Sosmed Icons Circle -->
+            <div class="flex gap-6">
+                <a href="https://instagram.com/gaection_id" target="_blank"
+                    class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#E4405F] hover:text-white hover:scale-110 hover:shadow-[0_0_30px_rgba(228,64,95,0.3)] transition-all duration-300 group">
+                    <iconify-icon icon="skill-icons:instagram" width="28"></iconify-icon>
+                </a>
+            </div>
+
+            <div class="text-[10px] text-gray-600 font-bold uppercase tracking-[0.2em] text-center">
+                <p>&copy; 2026 Panitia Go-Aection | SMK TI Bali Global Denpasar</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="/src/js/detail.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Simple Reveal
+        gsap.from('.reveal-up', {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: 'footer',
+                start: 'top 90%'
+            }
+        });
+    </script>
+    <script src="../js/detail.js"></script>
 </body>
 
 </html>
