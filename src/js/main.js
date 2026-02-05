@@ -95,110 +95,90 @@ if(mascotFight) {
     });
 }
 
-const competitionData = {
-    it: {
-        category: "SMP / MTS",
-        title: "IT (WEP)",
-        desc: "Uji kemahiranmu dalam mengelola data dan presentasi menggunakan ekosistem Microsoft Office. Kecepatan dan ketepatan adalah kuncinya.",
-        price: "Rp 75.000",
-        divisi: "SE-BALI",
-        icon: "💻",
-        color: "#17468B",
-        link: "/src/pages/lomba-it.html" // Mengarah ke halaman detail
-    },
-    robot: {
-        category: "UMUM",
-        title: "ROBOTIK",
-        desc: "Bangun robot sumomu, atur strategi terbaik, dan dorong lawan keluar arena. Pertarungan fisik dan otak dimulai di sini.",
-        price: "Rp 150.000",
-        divisi: "UMUM",
-        color: "#D12E17",
-        link: "/src/pages/lomba-robotik.html"
-    },
-    art: {
-        category: "SD - SMP",
-        title: "KESENIAN",
-        desc: "Lestarikan budaya Bali melalui Tari Tradisional, Sketsa Ogoh-ogoh, atau tunjukkan bakat desainmu di Poster Digital.",
-        price: "Mulai Rp 50.000",
-        divisi: "SE-BALI",
-        icon: "🎨",
-        color: "#D17417",
-        link: "/src/pages/lomba-kesenian.html"
-    },
-    rohis: {
-        category: "SMP / MTS",
-        title: "ROHIS",
-        desc: "Syiar kreatif melalui Kaligrafi, Tartil Quran, dan Pidato Islami. Gabungkan iman dengan seni digital.",
-        price: "Rp 25.000",
-        divisi: "SE-BALI",
-        icon: "🕌",
-        color: "#467474",
-        link: "/src/pages/lomba-rohis.html"
-    }
-};
-
-// Fungsi untuk menampilkan detail lomba berdasarkan kunci (it, robot, dll)
-function showComp(key) {
-    // 1. Ambil data dari objek competitionData
-    const data = competitionData[key];
-
-    // 2. Navigasi Tombol: Matikan semua, nyalakan yang dipilih
-    const allButtons = document.querySelectorAll('.comp-nav-btn');
-    allButtons.forEach(function(btn) {
-        btn.classList.remove('active');
+// 6. PILIH DIVISI INTERACTIVE SIDEBAR LOGIC
+function switchDivisi(category) {
+    // 1. Update Sidebar Tabs (Active State)
+    const allTabs = document.querySelectorAll('.divisi-tab');
+    allTabs.forEach(tab => {
+        tab.classList.remove('active');
+        // Reset indicator animation manually if needed, or let CSS handle it via class removal
+        const indicator = tab.querySelector('.active-indicator');
+        if(indicator) {
+            // GSAP Reset for smoothness if CSS transition isn't enough
+            gsap.to(indicator, { scaleY: 0, duration: 0.3 });
+        }
     });
 
-    const activeBtn = document.getElementById('btn-' + key);
-    if (activeBtn) {
-        activeBtn.classList.add('active');
+    const activeTab = document.getElementById(`tab-${category}`);
+    if (activeTab) {
+        activeTab.classList.add('active');
+        const indicator = activeTab.querySelector('.active-indicator');
+        if(indicator) {
+             gsap.to(indicator, { scaleY: 1, duration: 0.4, ease: "power2.out" });
+        }
     }
 
-    // 3. Target elemen yang akan dianimasikan
-    const contentArea = document.getElementById('comp-content');
-    const actionButtons = document.getElementById('comp-buttons');
-    const displayFrame = document.getElementById('comp-display');
+    // 2. Switch Content Area with GSAP
+    const allContents = document.querySelectorAll('.divisi-content');
+    const targetContent = document.getElementById(`content-${category}`);
 
-    // 4. Buat Timeline GSAP
-    // overwrite: true berfungsi membatalkan animasi sebelumnya jika user klik tombol lain dengan cepat
-    const tl = gsap.timeline({ overwrite: true });
-
-    // TAHAP A: Sembunyikan konten lama
-    tl.to([contentArea, actionButtons], {
-        opacity: 0,           // Menghilang
-        y: 10,                // Turun sedikit ke bawah
-        duration: 0.2,        // Cepat saja (0.2 detik)
-        ease: "power2.in",    // Gerakan melambat di akhir
-        onComplete: function() {
-            // TAHAP B: Ganti semua isi teks & link saat konten tidak terlihat
-            document.getElementById('comp-category').innerText = data.category;
-            document.getElementById('comp-category').style.color = data.color;
-            document.getElementById('comp-category').style.borderColor = data.color + "55";
-
-            document.getElementById('comp-title').innerText = data.title;
-            document.getElementById('comp-desc').innerText = data.desc;
-            document.getElementById('comp-price').innerText = data.price;
-            document.getElementById('comp-divisi').innerText = data.divisi;
-            // document.getElementById('comp-icon').innerText = data.icon;
-            document.getElementById('comp-link').href = data.link;
-
-            // TAHAP C: Ubah warna cahaya (glow) bingkai luar secara halus
-            gsap.to(displayFrame, {
-                boxShadow: "inset 0 0 100px " + data.color + "11",
-                borderColor: data.color + "33",
-                duration: 0.5
+    // Hide all current visible contents
+    allContents.forEach(content => {
+        if (content !== targetContent && content.classList.contains('visible')) {
+            // Animate out
+            gsap.to(content, {
+                opacity: 0,
+                y: 20, // Move down slightly
+                duration: 0.4,
+                ease: "power2.in",
+                onComplete: () => {
+                    content.classList.remove('visible');
+                    content.classList.add('invisible');
+                }
             });
         }
     });
 
-    // TAHAP D: Munculkan kembali konten yang sudah diganti
-    tl.to([contentArea, actionButtons], {
-        opacity: 1,           // Muncul kembali
-        y: 0,                 // Kembali ke posisi asli
-        duration: 0.5,        // Sedikit lebih lambat agar elegan
-        stagger: 0.1,         // Judul muncul duluan, baru tombol (efek mengalir)
-        ease: "power3.out"    // Gerakan halus di awal
-    });
+    // Show target content
+    if (targetContent) {
+        targetContent.classList.remove('invisible');
+        targetContent.classList.add('visible');
+
+        // Reset position for animation
+        gsap.fromTo(targetContent,
+            { opacity: 0, y: -20 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: 0.2, // Wait for exit animation
+                ease: "power2.out"
+            }
+        );
+
+        // Animate internal elements for staggered effect
+        const internalElements = targetContent.querySelectorAll('h3, p, .grid, a');
+        gsap.fromTo(internalElements,
+            { opacity: 0, y: 10 },
+            {
+                opacity: 1,
+                y: 0,
+                stagger: 0.1,
+                duration: 0.5,
+                delay: 0.3,
+                ease: "power2.out"
+            }
+        );
+    }
 }
+
+// Initialize first tab (IT) as active on load just in case
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if we are on homepage
+    if(document.getElementById('divisi-sidebar')) {
+        // switchDivisi('it'); // Uncomment if you want to force re-animating it, otherwise HTML default is fine
+    }
+});
 
 // 5. MOBILE MENU LOGIC (GSAP SMOOTH)
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');

@@ -16,8 +16,9 @@
                 extend: {
                     colors: { 'ga-orange': '#D17417', 'ga-mustard': '#D1A22E', 'void': '#050505' },
                     fontFamily: {
-                        'display': ['Poppins', 'sans-serif'],
-                        'body': ['Montserrat', 'sans-serif']
+                        'display': ['Orbitron', 'sans-serif'],
+                        'body': ['Rajdhani', 'sans-serif'],
+                        'mono': ['Share Tech Mono', 'monospace']
                     }
                 }
             }
@@ -33,11 +34,12 @@
 
     <!-- NAVBAR PREMIUM -->
     <!-- NAVBAR PREMIUM (Fixed Distributional Style) -->
+    <!-- NAVBAR PREMIUM (Fixed Distributional Style) -->
     <nav id="main-nav" class="nav-sticky">
         <div class="nav-container">
             <a href="/index.html" class="flex items-center gap-3">
                 <img src="/src/assets/images/logo-Go-Aection26.png"
-                    class="h-8 md:h-9 w-auto hover:rotate-12 transition duration-500" alt="Logo">
+                    class="h-10 md:h-12 w-auto hover:rotate-12 transition duration-500" alt="Logo">
                 <span class="font-bold text-lg md:text-xl tracking-tight text-white uppercase tracking-tighter">GA<span
                         class="text-ga-mustard">26</span></span>
             </a>
@@ -95,15 +97,11 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
         class="hidden fixed inset-0 bg-black/95 z-[200] flex flex-col items-center justify-center gap-8 text-2xl font-bold backdrop-blur-xl">
-        <button onclick="document.getElementById('mobile-menu').classList.add('hidden')"
-            class="absolute top-10 right-10 text-white text-4xl">&times;</button>
-        <a href="/index.html#hero" class="hover:text-ga-mustard"
-            onclick="document.getElementById('mobile-menu').classList.add('hidden')">Beranda</a>
-        <a href="/index.html#about" class="hover:text-ga-mustard"
-            onclick="document.getElementById('mobile-menu').classList.add('hidden')">Tentang Kami</a>
+        <button id="close-menu-btn" class="absolute top-10 right-10 text-white text-4xl">&times;</button>
+        <a href="/index.html#hero" class="hover:text-ga-mustard">Beranda</a>
+        <a href="/index.html#about" class="hover:text-ga-mustard">Tentang Kami</a>
         <a href="/src/pages/kontak.html" class="hover:text-ga-mustard">Kontak Personal</a>
-        <a href="/index.html#registration" class="hover:text-ga-mustard"
-            onclick="document.getElementById('mobile-menu').classList.add('hidden')">Lomba</a>
+        <a href="/index.html#registration" class="hover:text-ga-mustard">Lomba</a>
     </div>
 
     <main class="min-h-screen max-w-7xl mx-auto px-6 pt-32 pb-20 relative z-10">
@@ -116,7 +114,7 @@
                         class="bg-ga-orange/20 border border-ga-orange/30 text-ga-orange px-3 py-1 rounded text-[10px] md:text-xs font-bold uppercase tracking-wider mb-4 inline-block">Kategori:
                         SD & SMP</span>
                     <h1
-                        class="text-3xl sm:text-4xl md:text-6xl font-display font-bold uppercase leading-[1.1] mb-6 tracking-tighter text-white drop-shadow-[0_0_15px_rgba(209,116,23,0.5)]">
+                        class="text-3xl sm:text-4xl md:text-6xl font-display font-bold uppercase leading-[1.1] mb-6 tracking-wide text-white drop-shadow-[0_0_15px_rgba(209,116,23,0.5)]">
                         SENI & BUDAYA
                     </h1>
                     <p
@@ -429,7 +427,7 @@
             class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 flex flex-col items-center gap-8 relative z-20">
             <!-- Sosmed Icons Circle -->
             <div class="flex gap-6">
-                <a href="https://instagram.com/gaection_id" target="_blank"
+                <a href="https://www.instagram.com/goaction_tidps/" target="_blank"
                     class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#E4405F] hover:text-white hover:scale-110 hover:shadow-[0_0_30px_rgba(228,64,95,0.3)] transition-all duration-300 group">
                     <iconify-icon icon="skill-icons:instagram" width="28"></iconify-icon>
                 </a>

@@ -17,8 +17,9 @@
                         'ga-teal': '#467474'
                     },
                     fontFamily: {
-                        'display': ['Poppins', 'sans-serif'],
-                        'body': ['Montserrat', 'sans-serif'],
+                        'display': ['Orbitron', 'sans-serif'],
+                        'body': ['Rajdhani', 'sans-serif'],
+                        'mono': ['Share Tech Mono', 'monospace']
                     }
                 }
             }
@@ -42,7 +43,7 @@
         <div class="nav-container">
             <a href="/index.html" class="flex items-center gap-3">
                 <img src="/src/assets/images/logo-Go-Aection26.png"
-                    class="h-8 md:h-9 w-auto hover:rotate-12 transition duration-500" alt="Logo">
+                    class="h-10 md:h-12 w-auto hover:rotate-12 transition duration-500" alt="Logo">
                 <span class="font-bold text-lg md:text-xl tracking-tight text-white uppercase tracking-tighter">GA<span
                         class="text-ga-mustard">26</span></span>
             </a>
@@ -100,16 +101,11 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
         class="hidden fixed inset-0 bg-black/95 z-[200] flex flex-col items-center justify-center gap-8 text-2xl font-bold backdrop-blur-xl">
-        <button onclick="document.getElementById('mobile-menu').classList.add('hidden')"
-            class="absolute top-10 right-10 text-white text-4xl">&times;</button>
-        <a href="/index.html#hero" class="hover:text-ga-mustard"
-            onclick="document.getElementById('mobile-menu').classList.add('hidden')">Beranda</a>
-        <a href="/index.html#about" class="hover:text-ga-mustard"
-            onclick="document.getElementById('mobile-menu').classList.add('hidden')">Tentang Kami</a>
-        <a href="#" class="text-ga-mustard"
-            onclick="document.getElementById('mobile-menu').classList.add('hidden')">Kontak Personal</a>
-        <a href="/index.html#registration" class="hover:text-ga-mustard"
-            onclick="document.getElementById('mobile-menu').classList.add('hidden')">Daftar Sekarang</a>
+        <button id="close-menu-btn" class="absolute top-10 right-10 text-white text-4xl">&times;</button>
+        <a href="/index.html#hero" class="hover:text-ga-mustard">Beranda</a>
+        <a href="/index.html#about" class="hover:text-ga-mustard">Tentang Kami</a>
+        <a href="#" class="text-ga-mustard">Kontak Personal</a>
+        <a href="/index.html#registration" class="hover:text-ga-mustard">Daftar Sekarang</a>
     </div>
 
 
@@ -198,14 +194,16 @@
             <!-- Location Section Simple -->
             <div class="mt-32 reveal-up">
                 <div class="p-8 md:p-12 rounded-[40px] bg-white/[0.02] border border-white/5 text-center">
-                    <p class="text-ga-mustard font-bold uppercase tracking-widest text-xs mb-6">Lokasi Sekretariat</p>
+                    <p class="text-ga-mustard font-bold uppercase tracking-widest text-xs mb-6">Lokasi Lomba</p>
 
                     <!-- HD MAPS EMBED -->
-                    <div class="map-container h-[400px] w-full mb-10">
+                    <div
+                        class="map-container h-[400px] w-full mb-10 overflow-hidden rounded-3xl border border-white/10">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.1378129718423!2d115.234193!3d-8.678454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2406087d85c49%3A0xe7bc322ed6090772!2sSMK%20TI%20Bali%20Global%20Denpasar!5e0!3m2!1sid!2sid!4v1707010000000!5m2!1sid!2sid"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.068224522437!2d115.2314344759082!3d-8.68341589136495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2409b0e5e80db%3A0xad78f1ff66b638d2!2sSMK%20TI%20Bali%20Global%20Denpasar!5e0!3m2!1sid!2sid!4v1707040000000!5m2!1sid!2sid"
+                            width="100%" height="100%"
+                            style="border:0; filter: invert(90%) hue-rotate(180deg) grayscale(20%) contrast(1.2) brightness(0.9);"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
 
@@ -336,7 +334,7 @@
             class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 flex flex-col items-center gap-8 relative z-20">
             <!-- Sosmed Icons Circle -->
             <div class="flex gap-6">
-                <a href="https://instagram.com/gaection_id" target="_blank"
+                <a href="https://www.instagram.com/goaction_tidps/" target="_blank"
                     class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#E4405F] hover:text-white hover:scale-110 hover:shadow-[0_0_30px_rgba(228,64,95,0.3)] transition-all duration-300 group">
                     <iconify-icon icon="skill-icons:instagram" width="28"></iconify-icon>
                 </a>

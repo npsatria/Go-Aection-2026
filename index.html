@@ -222,11 +222,23 @@
                     </p>
 
                     <!-- Ikon Panah -->
-                    <div class="flex justify-center md:justify-start gap-2">
-                        <span
-                            class="text-ga-blue text-lg md:text-xl transition-transform hover:translate-x-1 cursor-default">▶</span>
-                        <span class="text-ga-blue/60 text-lg md:text-xl">▶</span>
-                        <span class="text-ga-blue/30 text-lg md:text-xl">▶</span>
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-4">
+                        <div class="flex gap-2">
+                            <span
+                                class="text-ga-blue text-lg md:text-xl transition-transform hover:translate-x-1 cursor-default">▶</span>
+                            <span class="text-ga-blue/60 text-lg md:text-xl">▶</span>
+                            <span class="text-ga-blue/30 text-lg md:text-xl">▶</span>
+                        </div>
+
+                        <!-- Link to Tentang Kami -->
+                        <a href="/src/pages/tentang-kami.html"
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-ga-blue/20 hover:bg-ga-blue text-white border border-ga-blue/40 hover:border-ga-blue rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(23,70,139,0.4)] text-sm font-bold uppercase tracking-wider">
+                            <span>Selengkapnya</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
@@ -440,103 +452,636 @@
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start reveal-up">
+            <!-- INTERACTIVE SIDEBAR LAYOUT -->
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-[600px] reveal-up">
 
-                <!-- SISI KIRI: TACTICAL KEYPAD (Navigasi) -->
-                <div class="lg:col-span-4 grid grid-cols-2 lg:flex lg:flex-col gap-3">
+                <!-- SIDEBAR NAVIGATION -->
+                <div class="w-full lg:w-1/4 flex flex-row lg:flex-col gap-4 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0"
+                    id="divisi-sidebar">
 
-                    <!-- Tombol Lomba 1 -->
-                    <button onclick="showComp('it')" id="btn-it" class="comp-nav-btn active group">
-                        <div class="nav-indicator"></div> <!-- Lampu Indikator -->
-                        <div class="flex flex-col text-left">
-                            <span class="text-xl font-bold text-white uppercase tracking-tight">IT (WEP)</span>
+                    <!-- Tab IT -->
+                    <button onclick="switchDivisi('it')" id="tab-it"
+                        class="divisi-tab active group relative w-full text-left p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-ga-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                         </div>
-                        <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                        <div class="relative z-10 flex flex-col items-center lg:items-start gap-2">
+                            <span
+                                class="p-3 rounded-lg bg-ga-blue/20 text-ga-blue group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span class="font-bold text-white uppercase text-sm md:text-base tracking-wider">IT
+                                (WEP)</span>
+                        </div>
+                        <!-- Active Indicator -->
+                        <div
+                            class="active-indicator absolute left-0 top-0 bottom-0 w-1 bg-ga-blue transform scale-y-0 transition-transform duration-300">
+                        </div>
                     </button>
 
-                    <!-- Tombol Lomba 2 -->
-                    <button onclick="showComp('robot')" id="btn-robot" class="comp-nav-btn group">
-                        <div class="nav-indicator"></div>
-                        <div class="flex flex-col text-left">
-                            <span class="text-xl font-bold text-white uppercase tracking-tight">ROBOTIK</span>
+                    <!-- Tab Robotik -->
+                    <button onclick="switchDivisi('robotik')" id="tab-robotik"
+                        class="divisi-tab group relative w-full text-left p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-ga-red/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                         </div>
-                        <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                        <div class="relative z-10 flex flex-col items-center lg:items-start gap-2">
+                            <span
+                                class="p-3 rounded-lg bg-ga-red/20 text-ga-red group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span
+                                class="font-bold text-white uppercase text-sm md:text-base tracking-wider">Robotik</span>
+                        </div>
+                        <div
+                            class="active-indicator absolute left-0 top-0 bottom-0 w-1 bg-ga-red transform scale-y-0 transition-transform duration-300">
+                        </div>
                     </button>
 
-                    <!-- Tombol Lomba 3 -->
-                    <button onclick="showComp('art')" id="btn-art" class="comp-nav-btn group">
-                        <div class="nav-indicator"></div>
-                        <div class="flex flex-col text-left">
-                            <span class="text-xl font-bold text-white uppercase tracking-tight">KESENIAN</span>
+                    <!-- Tab Kesenian -->
+                    <button onclick="switchDivisi('kesenian')" id="tab-kesenian"
+                        class="divisi-tab group relative w-full text-left p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-ga-orange/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                         </div>
-                        <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                        <div class="relative z-10 flex flex-col items-center lg:items-start gap-2">
+                            <span
+                                class="p-3 rounded-lg bg-ga-orange/20 text-ga-orange group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span
+                                class="font-bold text-white uppercase text-sm md:text-base tracking-wider">Kesenian</span>
+                        </div>
+                        <div
+                            class="active-indicator absolute left-0 top-0 bottom-0 w-1 bg-ga-orange transform scale-y-0 transition-transform duration-300">
+                        </div>
                     </button>
 
-                    <!-- Tombol Lomba 4 -->
-                    <button onclick="showComp('rohis')" id="btn-rohis" class="comp-nav-btn group">
-                        <div class="nav-indicator"></div>
-                        <div class="flex flex-col text-left">
-                            <span class="text-xl font-bold text-white uppercase tracking-tight">ROHIS</span>
+                    <!-- Tab Rohis -->
+                    <button onclick="switchDivisi('rohis')" id="tab-rohis"
+                        class="divisi-tab group relative w-full text-left p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-ga-teal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                         </div>
-                        <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                        <div class="relative z-10 flex flex-col items-center lg:items-start gap-2">
+                            <span
+                                class="p-3 rounded-lg bg-ga-teal/20 text-ga-teal group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span
+                                class="font-bold text-white uppercase text-sm md:text-base tracking-wider">Rohis</span>
+                        </div>
+                        <div
+                            class="active-indicator absolute left-0 top-0 bottom-0 w-1 bg-ga-teal transform scale-y-0 transition-transform duration-300">
+                        </div>
                     </button>
+
                 </div>
 
-                <!-- SISI KANAN: DISPLAY TERMINAL -->
-                <div class="lg:col-span-8">
-                    <div id="comp-display"
-                        class="glass-panel p-8 md:p-12 min-h-[550px] border-white/5 flex flex-col justify-between relative overflow-hidden transition-all duration-500">
+                <!-- CONTENT AREA -->
+                <div class="w-full lg:w-3/4 relative min-h-[500px]" id="divisi-content-area">
 
-                        <!-- Background Watermark (Muncul halus di pojok) -->
-                        <img id="comp-watermark" src="/src/assets/images/logo-Go-Aection26.png"
-                            class="absolute -bottom-10 -right-10 h-72 opacity-[0.03] grayscale" alt="">
+                    <!-- Content IT (Default Active) -->
+                    <div id="content-it"
+                        class="divisi-content absolute inset-0 opacity-100 visible transition-all duration-500 transform translate-y-0">
+                        <div class="h-full rounded-3xl overflow-hidden relative group">
+                            <!-- Background Image / Gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-ga-blue/10 to-transparent z-0"></div>
 
-                        <!-- Interactive Mascot (Character Select Vibe) -->
-                        <img src="/src/assets/icons/mascot-fight.png"
-                            class="absolute -bottom-20 -right-20 w-[450px] md:w-[600px] h-auto z-0 opacity-20 md:opacity-40 pointer-events-none animate-float-slow grayscale hover:grayscale-0 transition-all duration-700"
-                            alt="Mascot Decor">
+                            <!-- Content Layout -->
+                            <div
+                                class="relative z-10 h-full p-8 md:p-12 flex flex-col justify-center border border-white/10 rounded-3xl bg-white/[0.02] backdrop-blur-sm">
 
-                        <div id="comp-content" class="relative z-10">
-                            <div class="flex justify-between items-start mb-10">
-                                <div>
-                                    <span id="comp-category"
-                                        class="px-3 py-1 bg-ga-blue/10 text-ga-blue text-[10px] font-black rounded border border-ga-blue/30 uppercase tracking-widest">SMP
-                                        / MTS</span>
-                                    <h3 id="comp-title"
-                                        class="text-5xl md:text-7xl font-display font-bold text-white mt-4 uppercase tracking-tighter">
-                                        IT (WEP)</h3>
+                                <div
+                                    class="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-ga-blue/10 border border-ga-blue/30 rounded-full text-ga-blue text-xs font-bold uppercase tracking-widest">
+                                    <span>SMP / MTS</span>
                                 </div>
-                                <!-- Ikon Kategori Besar (Menambah Visual Interest) -->
-                                <!-- <div id="comp-icon" class="text-6xl opacity-20">💻</div> -->
+
+                                <h3
+                                    class="text-5xl md:text-7xl font-bold text-white mb-6 font-display uppercase tracking-tighter">
+                                    IT <span
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-ga-blue to-cyan-400">Competition</span>
+                                </h3>
+
+                                <p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
+                                    Uji kemampuanmu dalam penguasaan perangkat lunak perkantoran. Microsoft Word, Excel,
+                                    dan PowerPoint adalah senjatamu untuk memenangkan kompetisi ini.
+                                </p>
+
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Total Hadiah</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Jutaan Rupiah</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Biaya</p>
+                                        <p class="text-xl md:text-2xl font-bold text-ga-mustard">Rp 75.000</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Sistem</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Offline</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Kuota</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Terbatas</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="/src/pages/lomba-it.html"
+                                        class="px-8 py-4 bg-ga-blue text-white font-bold rounded-xl hover:bg-white hover:text-ga-blue transition-all shadow-lg shadow-ga-blue/30 uppercase tracking-wider">
+                                        Lihat Detail
+                                    </a>
+                                </div>
+
+                                <!-- Decorative Mascot -->
+                                <img src="/src/assets/icons/mascot-fight.png"
+                                    class="absolute right-[-20px] bottom-[-20px] w-96 h-96 object-contain opacity-20 pointer-events-none grayscale mix-blend-screen animate-mascot-idle"
+                                    alt="Mascot Decoration">
                             </div>
-
-                            <p id="comp-desc" class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mb-12">
-                                Uji kemahiranmu dalam mengelola data dan presentasi menggunakan ekosistem Microsoft
-                                Office. Kecepatan dan ketepatan adalah kuncinya.
-                            </p>
-
-                            <div class="flex flex-wrap gap-12 py-8 border-y border-white/10">
-                                <div>
-                                    <p class="text-[10px] text-gray-500 uppercase font-bold mb-2">Biaya Pendaftaran</p>
-                                    <p id="comp-price" class="text-3xl font-bold text-white">Rp 75.000</p>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] text-gray-500 uppercase font-bold mb-2">Wilayah</p>
-                                    <p id="comp-divisi" class="text-3xl font-bold text-ga-mustard">SE-DENPASAR</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="comp-buttons" class="relative z-10 flex flex-col sm:flex-row gap-4 mt-12">
-                            <a href="/src/pages/lomba-it.html" id="comp-link"
-                                class="px-10 py-4 bg-white text-black font-black rounded-xl hover:bg-ga-blue hover:text-white transition-all text-center uppercase text-[11px] tracking-widest">
-                                DAFTAR SEKARANG
-                            </a>
                         </div>
                     </div>
+
+                    <!-- Content Robotik -->
+                    <div id="content-robotik"
+                        class="divisi-content absolute inset-0 opacity-0 invisible transition-all duration-500 transform translate-y-10">
+                        <div class="h-full rounded-3xl overflow-hidden relative group">
+                            <div class="absolute inset-0 bg-gradient-to-br from-ga-red/10 to-transparent z-0"></div>
+                            <div
+                                class="relative z-10 h-full p-8 md:p-12 flex flex-col justify-center border border-white/10 rounded-3xl bg-white/[0.02] backdrop-blur-sm">
+                                <div
+                                    class="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-ga-red/10 border border-ga-red/30 rounded-full text-ga-red text-xs font-bold uppercase tracking-widest">
+                                    <span>UMUM</span>
+                                </div>
+                                <h3
+                                    class="text-5xl md:text-7xl font-bold text-white mb-6 font-display uppercase tracking-tighter">
+                                    Robotik <span
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-ga-red to-orange-500">Sumo</span>
+                                </h3>
+                                <p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
+                                    Tunjukkan ketangguhan robotmu di arena Sumo! Strategi, kecepatan, dan kekuatan
+                                    adalah kunci kemenangan.
+                                </p>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Total Hadiah</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Jutaan Rupiah</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Biaya</p>
+                                        <p class="text-xl md:text-2xl font-bold text-ga-mustard">Rp 150.000</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Kategori</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">RC Sumo</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Tim</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Max 2 Org</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="/src/pages/lomba-robotik.html"
+                                        class="px-8 py-4 bg-ga-red text-white font-bold rounded-xl hover:bg-white hover:text-ga-red transition-all shadow-lg shadow-ga-red/30 uppercase tracking-wider">
+                                        Lihat Detail
+                                    </a>
+                                </div>
+                                <img src="/src/assets/icons/mascot-fight.png"
+                                    class="absolute right-[-20px] bottom-[-20px] w-96 h-96 object-contain opacity-20 pointer-events-none grayscale mix-blend-screen"
+                                    alt="Mascot Decoration">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Kesenian -->
+                    <div id="content-kesenian"
+                        class="divisi-content absolute inset-0 opacity-0 invisible transition-all duration-500 transform translate-y-10">
+                        <div class="h-full rounded-3xl overflow-hidden relative group">
+                            <div class="absolute inset-0 bg-gradient-to-br from-ga-orange/10 to-transparent z-0"></div>
+                            <div
+                                class="relative z-10 h-full p-8 md:p-12 flex flex-col justify-center border border-white/10 rounded-3xl bg-white/[0.02] backdrop-blur-sm">
+                                <div
+                                    class="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-ga-orange/10 border border-ga-orange/30 rounded-full text-ga-orange text-xs font-bold uppercase tracking-widest">
+                                    <span>SD - SMP</span>
+                                </div>
+                                <h3
+                                    class="text-5xl md:text-7xl font-bold text-white mb-6 font-display uppercase tracking-tighter">
+                                    Kesenian <span
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-ga-orange to-yellow-500">Bali</span>
+                                </h3>
+                                <p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
+                                    Lestarikan budaya melalui Tari Tradisional, Sketsa Ogoh-ogoh, dan Poster Digital.
+                                </p>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Total Hadiah</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Jutaan Rupiah</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Biaya</p>
+                                        <p class="text-xl md:text-2xl font-bold text-ga-mustard">Mulai 50k</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Jenis</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Individu/Tim</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Tema</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Budaya</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="/src/pages/lomba-kesenian.html"
+                                        class="px-8 py-4 bg-ga-orange text-white font-bold rounded-xl hover:bg-white hover:text-ga-orange transition-all shadow-lg shadow-ga-orange/30 uppercase tracking-wider">
+                                        Lihat Detail
+                                    </a>
+                                </div>
+                                <img src="/src/assets/icons/mascot-fight.png"
+                                    class="absolute right-[-20px] bottom-[-20px] w-96 h-96 object-contain opacity-20 pointer-events-none grayscale mix-blend-screen"
+                                    alt="Mascot Decoration">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Rohis -->
+                    <div id="content-rohis"
+                        class="divisi-content absolute inset-0 opacity-0 invisible transition-all duration-500 transform translate-y-10">
+                        <div class="h-full rounded-3xl overflow-hidden relative group">
+                            <div class="absolute inset-0 bg-gradient-to-br from-ga-teal/10 to-transparent z-0"></div>
+                            <div
+                                class="relative z-10 h-full p-8 md:p-12 flex flex-col justify-center border border-white/10 rounded-3xl bg-white/[0.02] backdrop-blur-sm">
+                                <div
+                                    class="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-ga-teal/10 border border-ga-teal/30 rounded-full text-ga-teal text-xs font-bold uppercase tracking-widest">
+                                    <span>SMP / MTS</span>
+                                </div>
+                                <h3
+                                    class="text-5xl md:text-7xl font-bold text-white mb-6 font-display uppercase tracking-tighter">
+                                    Rohis <span
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-ga-teal to-emerald-400">Islami</span>
+                                </h3>
+                                <p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
+                                    Syiar Islam melalui seni Kaligrafi, Tartil Quran, dan Pidato. Tunjukkan bakat
+                                    terbaikmu!
+                                </p>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Total Hadiah</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Jutaan Rupiah</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Biaya</p>
+                                        <p class="text-xl md:text-2xl font-bold text-ga-mustard">Rp 25.000</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Sistem</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Offline</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Kuota</p>
+                                        <p class="text-xl md:text-2xl font-bold text-white">Terbatas</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="/src/pages/lomba-rohis.html"
+                                        class="px-8 py-4 bg-ga-teal text-white font-bold rounded-xl hover:bg-white hover:text-ga-teal transition-all shadow-lg shadow-ga-teal/30 uppercase tracking-wider">
+                                        Lihat Detail
+                                    </a>
+                                </div>
+                                <img src="/src/assets/icons/mascot-fight.png"
+                                    class="absolute right-[-20px] bottom-[-20px] w-96 h-96 object-contain opacity-20 pointer-events-none grayscale mix-blend-screen"
+                                    alt="Mascot Decoration">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SPONSOR SECTION (TECH BADGES) -->
+    <section class="py-24 relative overflow-hidden bg-black/40 border-t border-white/5">
+        <div class="container mx-auto px-6 mb-12 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center reveal-up">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ga-blue/30 bg-ga-blue/10 mb-4">
+                    <span class="w-2 h-2 rounded-full bg-ga-blue animate-pulse"></span>
+                    <span class="text-ga-blue text-[10px] font-bold uppercase tracking-widest">Supported By</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white uppercase mb-4 tracking-tighter">
+                    Sponsor <span class="text-ga-mustard">&</span> Partners
+                </h2>
+            </div>
+        </div>
+
+        <!-- Infinite Slider Container -->
+        <div class="sponsor-slider-wrapper relative">
+            <!-- Gradient Overlays for Fade Effect -->
+            <div
+                class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#030305] to-transparent z-20 pointer-events-none">
+            </div>
+            <div
+                class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#030305] to-transparent z-20 pointer-events-none">
+            </div>
+
+            <div class="sponsor-slider py-8">
+                <!-- LOGO 1: PLATINUM (SMART ED) -->
+                <div class="sponsor-logo group">
+                    <div
+                        class="w-48 h-24 relative bg-white/[0.03] backdrop-blur-md border border-ga-red/30 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:bg-ga-red/10 group-hover:border-ga-red/80 group-hover:shadow-[0_0_30px_rgba(209,46,23,0.25)]">
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-ga-red"></div>
+                        <span
+                            class="font-display font-black text-xl text-white tracking-tighter group-hover:text-ga-red transition-colors">SMART
+                            ED</span>
+                        <div
+                            class="absolute top-2 right-2 px-1.5 py-0.5 bg-ga-red text-[8px] font-bold text-white rounded-sm uppercase tracking-wider">
+                            Platinum</div>
+                    </div>
+                </div>
+
+                <!-- LOGO 2: GOLD (TECH GIANTS) -->
+                <div class="sponsor-logo group">
+                    <div
+                        class="w-48 h-24 relative bg-white/[0.03] backdrop-blur-md border border-ga-blue/30 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:bg-ga-blue/10 group-hover:border-ga-blue/80 group-hover:shadow-[0_0_30px_rgba(23,70,139,0.25)]">
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-ga-blue"></div>
+                        <span
+                            class="font-mono font-bold text-lg text-white group-hover:text-ga-blue transition-colors">TECH
+                            CORP</span>
+                        <div
+                            class="absolute top-2 right-2 px-1.5 py-0.5 bg-ga-blue text-[8px] font-bold text-white rounded-sm uppercase tracking-wider">
+                            Gold</div>
+                    </div>
+                </div>
+
+                <!-- LOGO 3: SILVER (CREATIVE STUDIO) -->
+                <div class="sponsor-logo group">
+                    <div
+                        class="w-48 h-24 relative bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:bg-white/5 group-hover:border-white/50 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-white/50"></div>
+                        <span
+                            class="font-body font-bold text-lg text-gray-300 group-hover:text-white transition-colors">CREATIVE.IO</span>
+                    </div>
+                </div>
+
+                <!-- LOGO 4: MEDIA (BALI POST) -->
+                <div class="sponsor-logo group">
+                    <div
+                        class="w-48 h-24 relative bg-white/[0.03] backdrop-blur-md border border-ga-orange/30 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:bg-ga-orange/10 group-hover:border-ga-orange/80 group-hover:shadow-[0_0_30px_rgba(209,116,23,0.25)]">
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-ga-orange"></div>
+                        <span
+                            class="font-display font-black text-xl italic text-white group-hover:text-ga-orange transition-colors">BALI
+                            NEWS</span>
+                        <div
+                            class="absolute top-2 right-2 px-1.5 py-0.5 bg-ga-orange text-[8px] font-bold text-white rounded-sm uppercase tracking-wider">
+                            Media</div>
+                    </div>
+                </div>
+
+                <!-- LOGO 5: PARTNER (DISDIK) -->
+                <div class="sponsor-logo group">
+                    <div
+                        class="w-48 h-24 relative bg-white/[0.03] backdrop-blur-md border border-ga-mustard/30 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:bg-ga-mustard/10 group-hover:border-ga-mustard/80 group-hover:shadow-[0_0_30px_rgba(209,162,46,0.25)]">
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-ga-mustard"></div>
+                        <span
+                            class="font-display font-bold text-lg text-white group-hover:text-ga-mustard transition-colors">DISDIKPORA</span>
+                        <div
+                            class="absolute top-2 right-2 px-1.5 py-0.5 bg-ga-mustard text-black text-[8px] font-bold rounded-sm uppercase tracking-wider">
+                            Official</div>
+                    </div>
+                </div>
+
+                <!-- REPEAT LOGOS FOR INFINITE SCROLL ILLUSION -->
+
+                <!-- LOGO 1: PLATINUM (SMART ED) -->
+                <div class="sponsor-logo group">
+                    <div
+                        class="w-48 h-24 relative bg-white/[0.03] backdrop-blur-md border border-ga-red/30 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:bg-ga-red/10 group-hover:border-ga-red/80 group-hover:shadow-[0_0_30px_rgba(209,46,23,0.25)]">
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-ga-red"></div>
+                        <span
+                            class="font-display font-black text-xl text-white tracking-tighter group-hover:text-ga-red transition-colors">SMART
+                            ED</span>
+                        <div
+                            class="absolute top-2 right-2 px-1.5 py-0.5 bg-ga-red text-[8px] font-bold text-white rounded-sm uppercase tracking-wider">
+                            Platinum</div>
+                    </div>
+                </div>
+
+                <!-- LOGO 2: GOLD (TECH GIANTS) -->
+                <div class="sponsor-logo group">
+                    <div
+                        class="w-48 h-24 relative bg-white/[0.03] backdrop-blur-md border border-ga-blue/30 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:bg-ga-blue/10 group-hover:border-ga-blue/80 group-hover:shadow-[0_0_30px_rgba(23,70,139,0.25)]">
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-ga-blue"></div>
+                        <span
+                            class="font-mono font-bold text-lg text-white group-hover:text-ga-blue transition-colors">TECH
+                            CORP</span>
+                        <div
+                            class="absolute top-2 right-2 px-1.5 py-0.5 bg-ga-blue text-[8px] font-bold text-white rounded-sm uppercase tracking-wider">
+                            Gold</div>
+                    </div>
+                </div>
+
+                <!-- LOGO 3: SILVER (CREATIVE STUDIO) -->
+                <div class="sponsor-logo group">
+                    <div
+                        class="w-48 h-24 relative bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:bg-white/5 group-hover:border-white/50 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-white/50"></div>
+                        <span
+                            class="font-body font-bold text-lg text-gray-300 group-hover:text-white transition-colors">CREATIVE.IO</span>
+                    </div>
+                </div>
+
+                <!-- LOGO 4: MEDIA (BALI POST) -->
+                <div class="sponsor-logo group">
+                    <div
+                        class="w-48 h-24 relative bg-white/[0.03] backdrop-blur-md border border-ga-orange/30 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:bg-ga-orange/10 group-hover:border-ga-orange/80 group-hover:shadow-[0_0_30px_rgba(209,116,23,0.25)]">
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-ga-orange"></div>
+                        <span
+                            class="font-display font-black text-xl italic text-white group-hover:text-ga-orange transition-colors">BALI
+                            NEWS</span>
+                        <div
+                            class="absolute top-2 right-2 px-1.5 py-0.5 bg-ga-orange text-[8px] font-bold text-white rounded-sm uppercase tracking-wider">
+                            Media</div>
+                    </div>
+                </div>
+
+                <!-- LOGO 5: PARTNER (DISDIK) -->
+                <div class="sponsor-logo group">
+                    <div
+                        class="w-48 h-24 relative bg-white/[0.03] backdrop-blur-md border border-ga-mustard/30 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:bg-ga-mustard/10 group-hover:border-ga-mustard/80 group-hover:shadow-[0_0_30px_rgba(209,162,46,0.25)]">
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-ga-mustard"></div>
+                        <span
+                            class="font-display font-bold text-lg text-white group-hover:text-ga-mustard transition-colors">DISDIKPORA</span>
+                        <div
+                            class="absolute top-2 right-2 px-1.5 py-0.5 bg-ga-mustard text-black text-[8px] font-bold rounded-sm uppercase tracking-wider">
+                            Official</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div
+        class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none">
+    </div>
+    <div
+        class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none">
+    </div>
+
+    <!-- Slider Track -->
+    <div class="sponsor-slider-wrapper overflow-hidden">
+        <div class="sponsor-slider flex gap-12 items-center">
+            <!-- Logo 1 -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-blue">TechVision</span>
+                </div>
+            </div>
+
+            <!-- Logo 2 -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-orange">Digital Bali</span>
+                </div>
+            </div>
+
+            <!-- Logo 3 -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-teal">Innovate Labs</span>
+                </div>
+            </div>
+
+            <!-- Logo 4 -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-red">Smart Education</span>
+                </div>
+            </div>
+
+            <!-- Logo 5 -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-mustard">Creative Studio</span>
+                </div>
+            </div>
+
+            <!-- Logo 6 -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-blue">FutureTech</span>
+                </div>
+            </div>
+
+            <!-- Logo 7 -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-orange">Media Plus</span>
+                </div>
+            </div>
+
+            <!-- Logo 8 -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-teal">Global Network</span>
+                </div>
+            </div>
+
+            <!-- Logo 9 -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-red">Bali Digital</span>
+                </div>
+            </div>
+
+            <!-- Logo 10 -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-mustard">Tech Solutions</span>
+                </div>
+            </div>
+
+            <!-- Duplicate for seamless loop -->
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-blue">TechVision</span>
+                </div>
+            </div>
+
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-orange">Digital Bali</span>
+                </div>
+            </div>
+
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-teal">Innovate Labs</span>
+                </div>
+            </div>
+
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-red">Smart Education</span>
+                </div>
+            </div>
+
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-mustard">Creative Studio</span>
+                </div>
+            </div>
+
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-blue">FutureTech</span>
+                </div>
+            </div>
+
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-orange">Media Plus</span>
+                </div>
+            </div>
+
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-teal">Global Network</span>
+                </div>
+            </div>
+
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-red">Bali Digital</span>
+                </div>
+            </div>
+
+            <div class="sponsor-logo">
+                <div class="glass-panel px-8 py-6 flex items-center justify-center min-w-[200px]">
+                    <span class="text-2xl font-bold text-ga-mustard">Tech Solutions</span>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
     </section>
 
     <!-- 5. FOOTER (Pusat Informasi) -->

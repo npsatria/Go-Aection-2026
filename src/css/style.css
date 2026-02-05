@@ -293,22 +293,42 @@ body {
                hover:bg-white/5 active:scale-95 uppercase;
     }
 
-    /* Tactical Navigation Sidebar (Halaman Detail) */
-    .comp-nav-btn {
-        @apply flex items-center gap-5 p-5 rounded-xl border border-white/5 bg-white/[0.03]
-               transition-all duration-500 hover:border-white/20 relative overflow-hidden;
+    /* ===== COMPETITION CARD GRID ===== */
+    .comp-card {
+        @apply relative block p-8 md:p-10 rounded-3xl border-2 border-white/10
+               bg-white/[0.02] backdrop-blur-sm transition-all duration-500
+               hover:border-white/30 overflow-hidden cursor-pointer;
     }
 
-    .comp-nav-btn.active {
-        @apply border-ga-blue bg-ga-blue/10 scale-[1.05] z-10 shadow-[0_0_30px_#17468B22];
+    .comp-card:hover {
+        @apply scale-105 shadow-2xl;
+        transform: translateY(-12px) scale(1.02);
     }
 
-    .nav-indicator {
-        @apply w-1 h-8 bg-gray-700 transition-all duration-500;
+    /* Color-coded hover effects */
+    .comp-card[data-category="it"]:hover {
+        @apply border-ga-blue/50 shadow-[0_20px_60px_rgba(23,70,139,0.4)];
     }
 
-    .active .nav-indicator {
-        @apply bg-ga-blue shadow-[0_0_15px_#17468B];
+    .comp-card[data-category="robot"]:hover {
+        @apply border-ga-red/50 shadow-[0_20px_60px_rgba(209,46,23,0.4)];
+    }
+
+    .comp-card[data-category="art"]:hover {
+        @apply border-ga-orange/50 shadow-[0_20px_60px_rgba(209,116,23,0.4)];
+    }
+
+    .comp-card[data-category="rohis"]:hover {
+        @apply border-ga-teal/50 shadow-[0_20px_60px_rgba(70,116,116,0.4)];
+    }
+
+    /* Icon Animation */
+    .card-icon {
+        @apply transition-transform duration-500;
+    }
+
+    .comp-card:hover .card-icon svg {
+        transform: scale(1.15) rotate(5deg);
     }
 }
 
@@ -406,6 +426,17 @@ body {
 @keyframes pulse-glow {
     0% { opacity: 0.3; transform: scale(1); }
     100% { opacity: 0.6; transform: scale(1.1); }
+}
+
+/* Animasi Mascot Idle (Fighting Stance Breath) */
+@keyframes mascot-idle {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.02); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+.animate-mascot-idle {
+    animation: mascot-idle 4s ease-in-out infinite;
 }
 
 /* ===========================================================
@@ -560,4 +591,158 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+}
+
+
+/* ===========================================================
+   SPONSOR SLIDER - INFINITE AUTO-SCROLL
+   =========================================================== */
+
+.sponsor-slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.sponsor-slider {
+    display: flex;
+    gap: 3rem;
+    animation: scroll-left 40s linear infinite;
+    will-change: transform;
+}
+
+/* Pause animation on hover */
+.sponsor-slider:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.sponsor-logo {
+    flex-shrink: 0;
+}
+
+.sponsor-logo .glass-panel {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sponsor-logo .glass-panel:hover {
+    transform: translateY(-4px);
+    border-color: rgba(209, 162, 46, 0.3);
+    box-shadow: 0 8px 32px rgba(209, 162, 46, 0.15);
+}
+
+/* ===========================================================
+   11. PILIH DIVISI SIDEBAR LAYOUT
+   =========================================================== */
+
+/* Sidebar Tab Styles */
+.divisi-tab {
+    /* Glassmorphism basic handled by utility classes, but specific overrides here */
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.divisi-tab.active {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateX(10px); /* Move slightly right on active (desktop) */
+}
+
+/* On mobile, move up/down doesn't make sense for horizontal scroll, maybe scale? */
+@media (max-width: 1024px) {
+    .divisi-tab {
+        min-width: 200px; /* Ensure tabs have width in horizontal scroll */
+        flex-shrink: 0;
+    }
+    .divisi-tab.active {
+        transform: translateY(-5px); /* Move up on active mobile */
+        transform: scale(1.05);
+    }
+}
+
+.divisi-tab .active-indicator {
+    /* CSS transition handled in HTML utility classes, ensuring visibility here */
+}
+
+.divisi-tab.active .active-indicator {
+    transform: scaleY(1); /* Reveal indicator vertical */
+}
+@media (max-width: 1024px) {
+    .divisi-tab.active .active-indicator {
+        transform: scaleX(1); /* Horizontal line for mobile if needed, or stick to vertical */
+        height: 4px;
+        width: 100%;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        transform: scaleY(1); /* Re-using scaleY but positioned at bottom can work like underline */
+    }
+}
+
+/* Content Area Transitions */
+.divisi-content {
+    /* Absolute positioning allows them to stack on top of each other */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Utility to ensure elements inside revealed content animate nicely */
+.divisi-content.visible svg {
+    animation: floating-anim 6s ease-in-out infinite;
+}
+
+/* ===========================================================
+   12. GLITCH TEXT EFFECT
+   =========================================================== */
+.text-glitch {
+    position: relative;
+    color: white;
+}
+
+.text-glitch::before,
+.text-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #030305; /* Match bg color */
+    opacity: 0.8;
+}
+
+.text-glitch::before {
+    color: #0ff;
+    z-index: -1;
+    animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+.text-glitch::after {
+    color: #f0f;
+    z-index: -2;
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+    0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+    20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+    40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+    60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+    80% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, 1px); }
+    100% { clip-path: inset(30% 0 20% 0); transform: translate(1px, -1px); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
+    20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 2px); }
+    40% { clip-path: inset(30% 0 20% 0); transform: translate(2px, 1px); }
+    60% { clip-path: inset(10% 0 80% 0); transform: translate(-1px, -2px); }
+    80% { clip-path: inset(50% 0 30% 0); transform: translate(2px, 1px); }
+    100% { clip-path: inset(70% 0 10% 0); transform: translate(-2px, -1px); }
 }

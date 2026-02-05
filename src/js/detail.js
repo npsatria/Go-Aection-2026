@@ -21,9 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* --- 2. LOGIC COUNTDOWN --- */
+    /* --- 2. LOGIC COUNTDOWN --- */
     const targetDate = new Date("Feb 7, 2026 23:59:59").getTime();
 
-    const timer = setInterval(function() {
+    function updateCountdown() {
         const now = new Date().getTime();
         const distance = targetDate - now;
 
@@ -40,21 +41,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (distance < 0) {
-            clearInterval(timer);
+            // clearInterval(timer); // Timer defined locally below if we kept it, but easier to just check
             const box = document.querySelector(".countdown-container");
             if(box) box.innerHTML = "<span class='text-red-500 font-bold'>PENDAFTARAN DITUTUP</span>";
         }
+    }
+
+    // Run immediately
+    updateCountdown();
+
+    // Check interval
+    const timer = setInterval(function() {
+        updateCountdown();
+        // Clear interval logic logic is inside updateCountdown equivalent check or simply let it run (minimal cost)
+        // But to be precise:
+        const now = new Date().getTime();
+        if (targetDate - now < 0) clearInterval(timer);
     }, 1000);
 
     /* --- 4. MOBILE MENU (GSAP Smooth) --- */
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    const closeMenuBtn = mobileMenu ? mobileMenu.querySelector('button') : null;
+    const closeMenuBtn = document.getElementById('close-menu-btn');
 
     if (mobileMenuBtn && mobileMenu) {
         const menuLinks = mobileMenu.querySelectorAll('a');
 
         const openMenu = () => {
+            mobileMenu.classList.remove('hidden');
             mobileMenu.classList.add('active');
             gsap.to(mobileMenu, {
                 opacity: 1,
@@ -86,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ease: "power2.in",
                 onComplete: () => {
                     mobileMenu.classList.remove('active');
+                    mobileMenu.classList.add('hidden');
                 }
             });
         };
