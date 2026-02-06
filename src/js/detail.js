@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* --- 2. LOGIC COUNTDOWN --- */
     /* --- 2. LOGIC COUNTDOWN --- */
-    const targetDate = new Date("Feb 7, 2026 23:59:59").getTime();
+    const targetDate = new Date("Feb 12, 2026 23:59:59").getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
