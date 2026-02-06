@@ -163,3 +163,35 @@ if (navbar) {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Init check
 }
+
+// 7. SPONSOR V4 GRID ANIMATION (Framer Motion Feel)
+const sponsorGrid = document.getElementById('sponsor-grid');
+if(sponsorGrid) {
+    const cards = sponsorGrid.querySelectorAll('.sponsor-card');
+
+    // Animate cards on scroll with "Elastic Stagger"
+    gsap.fromTo(cards,
+        {
+            y: 50,
+            opacity: 0,
+            scale: 0.9
+        },
+        {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            stagger: {
+                amount: 0.8,
+                grid: "auto",
+                from: "start"
+            },
+            ease: "elastic.out(1, 0.75)", // The "Framer" feel
+            scrollTrigger: {
+                trigger: "#sponsors",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            }
+        }
+    );
+}
