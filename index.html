@@ -537,324 +537,351 @@
                 </h2>
             </div>
 
-            <!-- INTERACTIVE SIDEBAR LAYOUT -->
-            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-[600px] reveal-up">
+            <!-- TICKET CARD LAYOUT (Vertical Stack) -->
+            <div class="grid grid-cols-1 gap-6 md:gap-8 reveal-up">
 
-                <!-- SIDEBAR NAVIGATION -->
-                <div class="w-full lg:w-1/4 flex flex-row lg:flex-col gap-4 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0"
-                    id="divisi-sidebar">
+                <!-- 1. IT COMPETITION (Blue) -->
+                <div
+                    class="group relative flex flex-col md:flex-row overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] hover:border-ga-blue/50 transition-all duration-500">
+                    <!-- Glow Effect -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-ga-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    </div>
 
-                    <!-- Tab IT -->
-                    <button onclick="switchDivisi('it')" id="tab-it"
-                        class="divisi-tab active group relative w-full text-left p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-ga-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="relative z-10 flex flex-col items-center lg:items-start gap-2">
+                    <!-- Left: Content -->
+                    <div class="flex-1 p-8 md:p-10 relative z-10 flex flex-col justify-center">
+                        <div class="flex items-start justify-between mb-4">
                             <span
-                                class="p-3 rounded-lg bg-ga-blue/20 text-ga-blue group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <span class="font-bold text-white uppercase text-sm md:text-base tracking-wider">IT
-                                (WEP)</span>
-                        </div>
-                        <!-- Active Indicator -->
-                        <div
-                            class="active-indicator absolute left-0 top-0 bottom-0 w-1 bg-ga-blue transform scale-y-0 transition-transform duration-300">
-                        </div>
-                    </button>
-
-                    <!-- Tab Robotik -->
-                    <button onclick="switchDivisi('robotik')" id="tab-robotik"
-                        class="divisi-tab group relative w-full text-left p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-ga-red/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="relative z-10 flex flex-col items-center lg:items-start gap-2">
-                            <span
-                                class="p-3 rounded-lg bg-ga-red/20 text-ga-red group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z">
-                                    </path>
-                                </svg>
+                                class="inline-flex items-center gap-2 px-3 py-1 bg-ga-blue/10 border border-ga-blue/20 rounded-full text-ga-blue text-[10px] font-bold uppercase tracking-widest">
+                                SMP / MTS
                             </span>
                             <span
-                                class="font-bold text-white uppercase text-sm md:text-base tracking-wider">Robotik</span>
+                                class="text-white/30 font-mono text-sm group-hover:text-ga-blue transition-colors">#01</span>
                         </div>
-                        <div
-                            class="active-indicator absolute left-0 top-0 bottom-0 w-1 bg-ga-red transform scale-y-0 transition-transform duration-300">
+                        <h3 class="text-3xl md:text-5xl font-black font-display text-white mb-4 uppercase italic">
+                            IT (WEP) <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-ga-blue to-cyan-400">Competition</span>
+                        </h3>
+                        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl mb-8">
+                            Uji kemampuanmu dalam penguasaan perangkat lunak perkantoran (Word, Excel, PowerPoint).
+                            Tunjukkan keahlianmu dalam menyelesaikan tugas digital.
+                        </p>
+                        <!-- Features -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-ga-blue">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 uppercase font-bold">Peserta</p>
+                                    <p class="text-sm text-white font-medium">Individu</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-ga-blue">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 uppercase font-bold">Sistem</p>
+                                    <p class="text-sm text-white font-medium">Offline</p>
+                                </div>
+                            </div>
                         </div>
-                    </button>
+                    </div>
 
-                    <!-- Tab Kesenian -->
-                    <button onclick="switchDivisi('kesenian')" id="tab-kesenian"
-                        class="divisi-tab group relative w-full text-left p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 overflow-hidden">
+                    <!-- Right: Action (Ticket Stub Style) -->
+                    <div
+                        class="relative w-full md:w-80 bg-gradient-to-b from-ga-blue/10 to-ga-blue/5 border-t md:border-t-0 md:border-l border-white/10 p-8 flex flex-col justify-between group-hover:from-ga-blue/20 group-hover:to-ga-blue/10 transition-colors duration-500">
+                        <!-- Perforation Visuals -->
                         <div
-                            class="absolute inset-0 bg-gradient-to-r from-ga-orange/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="relative z-10 flex flex-col items-center lg:items-start gap-2">
-                            <span
-                                class="p-3 rounded-lg bg-ga-orange/20 text-ga-orange group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
-                                    </path>
-                                </svg>
-                            </span>
-                            <span
-                                class="font-bold text-white uppercase text-sm md:text-base tracking-wider">Kesenian</span>
+                            class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#0a0a0a] rounded-full hidden md:block border-r border-white/20">
                         </div>
                         <div
-                            class="active-indicator absolute left-0 top-0 bottom-0 w-1 bg-ga-orange transform scale-y-0 transition-transform duration-300">
+                            class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-[#0a0a0a] rounded-full md:hidden border-b border-white/20">
                         </div>
-                    </button>
 
-                    <!-- Tab Rohis -->
-                    <button onclick="switchDivisi('rohis')" id="tab-rohis"
-                        class="divisi-tab group relative w-full text-left p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-ga-teal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div>
+                            <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2">Registration Fee
+                            </p>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-ga-blue text-4xl font-black tracking-tight">75K</span>
+                                <span class="text-gray-500 font-bold text-sm">/ pax</span>
+                            </div>
                         </div>
-                        <div class="relative z-10 flex flex-col items-center lg:items-start gap-2">
-                            <span
-                                class="p-3 rounded-lg bg-ga-teal/20 text-ga-teal group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
-                                    </path>
-                                </svg>
-                            </span>
-                            <span
-                                class="font-bold text-white uppercase text-sm md:text-base tracking-wider">Rohis</span>
-                        </div>
-                        <div
-                            class="active-indicator absolute left-0 top-0 bottom-0 w-1 bg-ga-teal transform scale-y-0 transition-transform duration-300">
-                        </div>
-                    </button>
 
+                        <a href="/src/pages/lomba-it.html"
+                            class="mt-8 inline-flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold uppercase tracking-wider text-sm rounded-xl hover:bg-ga-blue hover:text-white transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(23,70,139,0.4)]">
+                            Daftar Sekarang
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- CONTENT AREA -->
-                <div class="w-full lg:w-3/4 relative min-h-[500px]" id="divisi-content-area">
+                <!-- 2. ROBOTIK (Red) -->
+                <div
+                    class="group relative flex flex-col md:flex-row overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] hover:border-ga-red/50 transition-all duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-ga-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    </div>
 
-                    <!-- Content IT (Default Active) -->
-                    <div id="content-it"
-                        class="divisi-content absolute inset-0 opacity-100 visible transition-all duration-500 transform translate-y-0">
-                        <div class="h-full rounded-3xl overflow-hidden relative group">
-                            <!-- Background Image / Gradient -->
-                            <div class="absolute inset-0 bg-gradient-to-br from-ga-blue/10 to-transparent z-0"></div>
-
-                            <!-- Content Layout -->
-                            <div
-                                class="relative z-10 h-full p-8 md:p-12 flex flex-col justify-center border border-white/10 rounded-3xl bg-white/[0.02] backdrop-blur-sm">
-
+                    <div class="flex-1 p-8 md:p-10 relative z-10 flex flex-col justify-center">
+                        <div class="flex items-start justify-between mb-4">
+                            <span
+                                class="inline-flex items-center gap-2 px-3 py-1 bg-ga-red/10 border border-ga-red/20 rounded-full text-ga-red text-[10px] font-bold uppercase tracking-widest">
+                                UMUM (SD - SMA)
+                            </span>
+                            <span
+                                class="text-white/30 font-mono text-sm group-hover:text-ga-red transition-colors">#02</span>
+                        </div>
+                        <h3 class="text-3xl md:text-5xl font-black font-display text-white mb-4 uppercase italic">
+                            Robotik <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-ga-red to-orange-500">Sumobot</span>
+                        </h3>
+                        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl mb-8">
+                            Pertarungan robot sumo yang menegangkan. Rancangan strategi, kekuatan, dan ketangkasan
+                            robotmu akan diuji di arena ini.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3">
                                 <div
-                                    class="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-ga-blue/10 border border-ga-blue/30 rounded-full text-ga-blue text-xs font-bold uppercase tracking-widest">
-                                    <span>SMP / MTS</span>
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-ga-red">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
                                 </div>
-
-                                <h3
-                                    class="text-5xl md:text-7xl font-bold text-white mb-6 font-display uppercase tracking-tighter">
-                                    IT <span
-                                        class="text-transparent bg-clip-text bg-gradient-to-r from-ga-blue to-cyan-400">Competition</span>
-                                </h3>
-
-                                <p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
-                                    Uji kemampuanmu dalam penguasaan perangkat lunak perkantoran. Microsoft Word, Excel,
-                                    dan PowerPoint adalah senjatamu untuk memenangkan kompetisi ini.
-                                </p>
-
-                                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Total Hadiah</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Jutaan Rupiah</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Biaya</p>
-                                        <p class="text-xl md:text-2xl font-bold text-ga-mustard">Rp 75.000</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Sistem</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Offline</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Kuota</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Terbatas</p>
-                                    </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 uppercase font-bold">Tim</p>
+                                    <p class="text-sm text-white font-medium">Max 2 Orang</p>
                                 </div>
-
-                                <div class="flex flex-wrap gap-4">
-                                    <a href="/src/pages/lomba-it.html"
-                                        class="px-8 py-4 bg-ga-blue text-white font-bold rounded-xl hover:bg-white hover:text-ga-blue transition-all shadow-lg shadow-ga-blue/30 uppercase tracking-wider">
-                                        Lihat Detail
-                                    </a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-ga-red">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
                                 </div>
-
-                                <!-- Decorative Mascot -->
-                                <img src="/src/assets/icons/mascot-fight.png"
-                                    class="absolute right-[-20px] bottom-[-20px] w-96 h-96 object-contain opacity-20 pointer-events-none grayscale mix-blend-screen animate-mascot-idle"
-                                    alt="Mascot Decoration">
+                                <div>
+                                    <p class="text-xs text-gray-500 uppercase font-bold">Kategori</p>
+                                    <p class="text-sm text-white font-medium">Sumo RC</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Content Robotik -->
-                    <div id="content-robotik"
-                        class="divisi-content absolute inset-0 opacity-0 invisible transition-all duration-500 transform translate-y-10">
-                        <div class="h-full rounded-3xl overflow-hidden relative group">
-                            <div class="absolute inset-0 bg-gradient-to-br from-ga-red/10 to-transparent z-0"></div>
-                            <div
-                                class="relative z-10 h-full p-8 md:p-12 flex flex-col justify-center border border-white/10 rounded-3xl bg-white/[0.02] backdrop-blur-sm">
+                    <div
+                        class="relative w-full md:w-80 bg-gradient-to-b from-ga-red/10 to-ga-red/5 border-t md:border-t-0 md:border-l border-white/10 p-8 flex flex-col justify-between group-hover:from-ga-red/20 group-hover:to-ga-red/10 transition-colors duration-500">
+                        <div
+                            class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#0a0a0a] rounded-full hidden md:block border-r border-white/20">
+                        </div>
+                        <div
+                            class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-[#0a0a0a] rounded-full md:hidden border-b border-white/20">
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2">Registration Fee
+                            </p>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-ga-red text-4xl font-black tracking-tight">150K</span>
+                                <span class="text-gray-500 font-bold text-sm">/ tim</span>
+                            </div>
+                        </div>
+
+                        <a href="/src/pages/lomba-robotik.html"
+                            class="mt-8 inline-flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold uppercase tracking-wider text-sm rounded-xl hover:bg-ga-red hover:text-white transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(225,29,72,0.4)]">
+                            Info Lengkap
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. KESENIAN (Orange) -->
+                <div
+                    class="group relative flex flex-col md:flex-row overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] hover:border-ga-orange/50 transition-all duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-ga-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    </div>
+
+                    <div class="flex-1 p-8 md:p-10 relative z-10 flex flex-col justify-center">
+                        <div class="flex items-start justify-between mb-4">
+                            <span
+                                class="inline-flex items-center gap-2 px-3 py-1 bg-ga-orange/10 border border-ga-orange/20 rounded-full text-ga-orange text-[10px] font-bold uppercase tracking-widest">
+                                SMP / MTS
+                            </span>
+                            <span
+                                class="text-white/30 font-mono text-sm group-hover:text-ga-orange transition-colors">#03</span>
+                        </div>
+                        <h3 class="text-3xl md:text-5xl font-black font-display text-white mb-4 uppercase italic">
+                            Kesenian <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-ga-orange to-yellow-500">Culture</span>
+                        </h3>
+                        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl mb-8">
+                            Tampilkan bakat senimu dalam berbagai kategori: Tari, Poster Digital, dan Baca Puisi. Wadah
+                            ekspresi kreativitas tanpa batas.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3">
                                 <div
-                                    class="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-ga-red/10 border border-ga-red/30 rounded-full text-ga-red text-xs font-bold uppercase tracking-widest">
-                                    <span>UMUM</span>
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-ga-orange">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                                        </path>
+                                    </svg>
                                 </div>
-                                <h3
-                                    class="text-5xl md:text-7xl font-bold text-white mb-6 font-display uppercase tracking-tighter">
-                                    Robotik <span
-                                        class="text-transparent bg-clip-text bg-gradient-to-r from-ga-red to-orange-500">Sumo</span>
-                                </h3>
-                                <p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
-                                    Tunjukkan ketangguhan robotmu di arena Sumo! Strategi, kecepatan, dan kekuatan
-                                    adalah kunci kemenangan.
-                                </p>
-                                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Total Hadiah</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Jutaan Rupiah</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Biaya</p>
-                                        <p class="text-xl md:text-2xl font-bold text-ga-mustard">Rp 150.000</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Kategori</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">RC Sumo</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Tim</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Max 2 Org</p>
-                                    </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 uppercase font-bold">Jenis</p>
+                                    <p class="text-sm text-white font-medium">Digital Art</p>
                                 </div>
-                                <div class="flex flex-wrap gap-4">
-                                    <a href="/src/pages/lomba-robotik.html"
-                                        class="px-8 py-4 bg-ga-red text-white font-bold rounded-xl hover:bg-white hover:text-ga-red transition-all shadow-lg shadow-ga-red/30 uppercase tracking-wider">
-                                        Lihat Detail
-                                    </a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-ga-orange">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3">
+                                        </path>
+                                    </svg>
                                 </div>
-                                <img src="/src/assets/icons/mascot-fight.png"
-                                    class="absolute right-[-20px] bottom-[-20px] w-96 h-96 object-contain opacity-20 pointer-events-none grayscale mix-blend-screen"
-                                    alt="Mascot Decoration">
+                                <div>
+                                    <p class="text-xs text-gray-500 uppercase font-bold">Live</p>
+                                    <p class="text-sm text-white font-medium">Performance</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Content Kesenian -->
-                    <div id="content-kesenian"
-                        class="divisi-content absolute inset-0 opacity-0 invisible transition-all duration-500 transform translate-y-10">
-                        <div class="h-full rounded-3xl overflow-hidden relative group">
-                            <div class="absolute inset-0 bg-gradient-to-br from-ga-orange/10 to-transparent z-0"></div>
-                            <div
-                                class="relative z-10 h-full p-8 md:p-12 flex flex-col justify-center border border-white/10 rounded-3xl bg-white/[0.02] backdrop-blur-sm">
+                    <div
+                        class="relative w-full md:w-80 bg-gradient-to-b from-ga-orange/10 to-ga-orange/5 border-t md:border-t-0 md:border-l border-white/10 p-8 flex flex-col justify-between group-hover:from-ga-orange/20 group-hover:to-ga-orange/10 transition-colors duration-500">
+                        <div
+                            class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#0a0a0a] rounded-full hidden md:block border-r border-white/20">
+                        </div>
+                        <div
+                            class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-[#0a0a0a] rounded-full md:hidden border-b border-white/20">
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2">Registration Fee
+                            </p>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-ga-orange text-4xl font-black tracking-tight">50K</span>
+                                <span class="text-gray-500 font-bold text-sm">/ lomba</span>
+                            </div>
+                        </div>
+
+                        <a href="/src/pages/lomba-kesenian.html"
+                            class="mt-8 inline-flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold uppercase tracking-wider text-sm rounded-xl hover:bg-ga-orange hover:text-white transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(209,116,23,0.4)]">
+                            Daftar Sekarang
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. ROHIS (Teal) -->
+                <div
+                    class="group relative flex flex-col md:flex-row overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] hover:border-ga-teal/50 transition-all duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-ga-teal/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    </div>
+
+                    <div class="flex-1 p-8 md:p-10 relative z-10 flex flex-col justify-center">
+                        <div class="flex items-start justify-between mb-4">
+                            <span
+                                class="inline-flex items-center gap-2 px-3 py-1 bg-ga-teal/10 border border-ga-teal/20 rounded-full text-ga-teal text-[10px] font-bold uppercase tracking-widest">
+                                SMP / MTS
+                            </span>
+                            <span
+                                class="text-white/30 font-mono text-sm group-hover:text-ga-teal transition-colors">#04</span>
+                        </div>
+                        <h3 class="text-3xl md:text-5xl font-black font-display text-white mb-4 uppercase italic">
+                            Rohis <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-ga-teal to-emerald-400">Islamic</span>
+                        </h3>
+                        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl mb-8">
+                            Kompetisi Islami yang membangun karakter dan kreativitas: Hadrah, Tilawah, Kaligrafi, dan
+                            Da'i Muda.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3">
                                 <div
-                                    class="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-ga-orange/10 border border-ga-orange/30 rounded-full text-ga-orange text-xs font-bold uppercase tracking-widest">
-                                    <span>SD - SMP</span>
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-ga-teal">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                        </path>
+                                    </svg>
                                 </div>
-                                <h3
-                                    class="text-5xl md:text-7xl font-bold text-white mb-6 font-display uppercase tracking-tighter">
-                                    Kesenian <span
-                                        class="text-transparent bg-clip-text bg-gradient-to-r from-ga-orange to-yellow-500">Bali</span>
-                                </h3>
-                                <p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
-                                    Lestarikan budaya melalui Tari Tradisional, Sketsa Ogoh-ogoh, dan Poster Digital.
-                                </p>
-                                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Total Hadiah</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Jutaan Rupiah</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Biaya</p>
-                                        <p class="text-xl md:text-2xl font-bold text-ga-mustard">Mulai 50k</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Jenis</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Individu/Tim</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Tema</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Budaya</p>
-                                    </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 uppercase font-bold">Religi</p>
+                                    <p class="text-sm text-white font-medium">Seni Islam</p>
                                 </div>
-                                <div class="flex flex-wrap gap-4">
-                                    <a href="/src/pages/lomba-kesenian.html"
-                                        class="px-8 py-4 bg-ga-orange text-white font-bold rounded-xl hover:bg-white hover:text-ga-orange transition-all shadow-lg shadow-ga-orange/30 uppercase tracking-wider">
-                                        Lihat Detail
-                                    </a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-ga-teal">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                        </path>
+                                    </svg>
                                 </div>
-                                <img src="/src/assets/icons/mascot-fight.png"
-                                    class="absolute right-[-20px] bottom-[-20px] w-96 h-96 object-contain opacity-20 pointer-events-none grayscale mix-blend-screen"
-                                    alt="Mascot Decoration">
+                                <div>
+                                    <p class="text-xs text-gray-500 uppercase font-bold">Format</p>
+                                    <p class="text-sm text-white font-medium">Tim / Individu</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Content Rohis -->
-                    <div id="content-rohis"
-                        class="divisi-content absolute inset-0 opacity-0 invisible transition-all duration-500 transform translate-y-10">
-                        <div class="h-full rounded-3xl overflow-hidden relative group">
-                            <div class="absolute inset-0 bg-gradient-to-br from-ga-teal/10 to-transparent z-0"></div>
-                            <div
-                                class="relative z-10 h-full p-8 md:p-12 flex flex-col justify-center border border-white/10 rounded-3xl bg-white/[0.02] backdrop-blur-sm">
-                                <div
-                                    class="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-ga-teal/10 border border-ga-teal/30 rounded-full text-ga-teal text-xs font-bold uppercase tracking-widest">
-                                    <span>SMP / MTS</span>
-                                </div>
-                                <h3
-                                    class="text-5xl md:text-7xl font-bold text-white mb-6 font-display uppercase tracking-tighter">
-                                    Rohis <span
-                                        class="text-transparent bg-clip-text bg-gradient-to-r from-ga-teal to-emerald-400">Islami</span>
-                                </h3>
-                                <p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
-                                    Syiar Islam melalui seni Kaligrafi, Tartil Quran, dan Pidato. Tunjukkan bakat
-                                    terbaikmu!
-                                </p>
-                                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Total Hadiah</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Jutaan Rupiah</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Biaya</p>
-                                        <p class="text-xl md:text-2xl font-bold text-ga-mustard">Rp 25.000</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Sistem</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Offline</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-xs uppercase font-bold mb-1">Kuota</p>
-                                        <p class="text-xl md:text-2xl font-bold text-white">Terbatas</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-wrap gap-4">
-                                    <a href="/src/pages/lomba-rohis.html"
-                                        class="px-8 py-4 bg-ga-teal text-white font-bold rounded-xl hover:bg-white hover:text-ga-teal transition-all shadow-lg shadow-ga-teal/30 uppercase tracking-wider">
-                                        Lihat Detail
-                                    </a>
-                                </div>
-                                <img src="/src/assets/icons/mascot-fight.png"
-                                    class="absolute right-[-20px] bottom-[-20px] w-96 h-96 object-contain opacity-20 pointer-events-none grayscale mix-blend-screen"
-                                    alt="Mascot Decoration">
+                    <div
+                        class="relative w-full md:w-80 bg-gradient-to-b from-ga-teal/10 to-ga-teal/5 border-t md:border-t-0 md:border-l border-white/10 p-8 flex flex-col justify-between group-hover:from-ga-teal/20 group-hover:to-ga-teal/10 transition-colors duration-500">
+                        <div
+                            class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#0a0a0a] rounded-full hidden md:block border-r border-white/20">
+                        </div>
+                        <div
+                            class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-[#0a0a0a] rounded-full md:hidden border-b border-white/20">
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2">Registration Fee
+                            </p>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-ga-teal text-4xl font-black tracking-tight">45K</span>
+                                <span class="text-gray-500 font-bold text-sm">/ lomba</span>
                             </div>
                         </div>
-                    </div>
 
+                        <a href="/src/pages/lomba-rohis.html"
+                            class="mt-8 inline-flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold uppercase tracking-wider text-sm rounded-xl hover:bg-ga-teal hover:text-white transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(70,116,116,0.4)]">
+                            Daftar Sekarang
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
             </div>
