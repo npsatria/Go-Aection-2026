@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id" class="scroll-smooth dark">
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,7 @@
     <!-- Config Warna Tailwind -->
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -31,12 +32,16 @@
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
 
-<body>
+<body class="bg-gray-50 dark:bg-[#050505] text-gray-900 dark:text-white transition-colors duration-500">
 
     <!-- Background Elements -->
-    <div class="bg-noise"></div>
-    <div class="orb w-[600px] h-[600px] bg-ga-blue top-[-100px] left-[-200px]"></div>
-    <div class="orb w-[500px] h-[500px] bg-ga-red bottom-[10%] right-[-100px]"></div>
+    <div class="bg-noise opacity-30 dark:opacity-100 mix-blend-soft-light pointer-events-none fixed inset-0 z-0"></div>
+    <div
+        class="orb w-[600px] h-[600px] bg-ga-blue top-[-100px] left-[-200px] opacity-20 dark:opacity-40 filter blur-[100px] fixed z-0">
+    </div>
+    <div
+        class="orb w-[500px] h-[500px] bg-ga-red bottom-[10%] right-[-100px] opacity-20 dark:opacity-40 filter blur-[100px] fixed z-0">
+    </div>
 
     <!-- NAVBAR PREMIUM -->
     <!-- NAVBAR PREMIUM (Fixed Distributional Style) -->
@@ -130,14 +135,16 @@
                 </div>
 
                 <h1
-                    class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight font-display tracking-tighter">
+                    class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-display tracking-tighter transition-colors">
                     GO-AECTION <br> <span
                         class="hero-subtitle text-transparent bg-clip-text bg-gradient-to-r from-ga-mustard to-ga-red">2026</span>
                 </h1>
 
                 <p
-                    class="text-gray-400 text-base md:text-lg lg:text-xl max-w-lg mx-auto md:mx-0 mb-8 md:mb-10 leading-relaxed">
-                    Kompetisi bergengsi <span class="text-white">Teknologi, Seni & Religi</span>. Tunjukkan inovasimu
+                    class="text-gray-600 dark:text-gray-400 text-base md:text-lg lg:text-xl max-w-lg mx-auto md:mx-0 mb-8 md:mb-10 leading-relaxed transition-colors">
+                    Kompetisi bergengsi <span
+                        class="text-ga-blue dark:text-white font-bold transition-colors">Teknologi, Seni &
+                        Religi</span>. Tunjukkan inovasimu
                     dan rebut Piala Bergilir!
                 </p>
 
@@ -451,26 +458,25 @@
             <!-- Using opacity-0 initially for GSAP to handle the entrance -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6" id="sponsor-grid">
 
-                <!-- 1. PLATINUM: Sewa Kamera Bali (BLUE GLOW) -->
+                <!-- 1. PLATINUM: Sewa Kamera Bali (BLUE GLOW) - GLASS -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-blue-600/10 hover:border-blue-500/30 transition-all duration-500 opacity-0">
+                    class="sponsor-card group relative h-28 md:h-32 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center overflow-hidden hover:bg-blue-600/20 hover:border-blue-500/50 transition-all duration-500 opacity-0">
                     <span
                         class="relative z-10 font-black text-white text-xl tracking-tight group-hover:scale-105 transition-transform duration-300">SEWA<span
                             class="text-blue-500">KAMERA</span></span>
-                    <!-- Corner Accent -->
                     <div
-                        class="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                        class="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_10px_#3b82f6]">
                     </div>
                 </div>
 
-                <!-- 2. PLATINUM: Info Denpasar (BLUE GLOW) -->
+                <!-- 2. PLATINUM: Info Denpasar (BLUE GLOW) - GLASS -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-blue-600/10 hover:border-blue-500/30 transition-all duration-500 opacity-0">
+                    class="sponsor-card group relative h-28 md:h-32 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center overflow-hidden hover:bg-blue-600/20 hover:border-blue-500/50 transition-all duration-500 opacity-0">
                     <span
                         class="relative z-10 font-black text-white text-xl tracking-tight group-hover:scale-105 transition-transform duration-300">INFO<span
                             class="text-blue-500">DPS</span></span>
                     <div
-                        class="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                        class="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_10px_#3b82f6]">
                     </div>
                 </div>
 

@@ -125,4 +125,32 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener('scroll', handleScroll);
         handleScroll(); // Init check
     }
+
+    // 7. THEME TOGGLE SYSTEM
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+        // Check saved preference or system preference (default to dark as per premium design)
+        const savedTheme = localStorage.getItem('theme');
+
+        // Explicitly set dark by default if no save, or follow save
+        if (savedTheme === 'dark' || (!savedTheme && true)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+            // Optional: Animate icon rotation
+            const icons = themeToggleBtn.querySelectorAll('iconify-icon');
+            if (typeof gsap !== 'undefined') {
+                gsap.fromTo(icons,
+                    { rotation: -90, scale: 0.5 },
+                    { rotation: 0, scale: 1, duration: 0.5, ease: "back.out(1.7)" }
+                );
+            }
+        });
+    }
 });

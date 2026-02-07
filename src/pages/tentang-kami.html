@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id" class="scroll-smooth dark">
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,7 @@
     <!-- Config Warna Tailwind -->
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -23,6 +24,7 @@
                     fontFamily: {
                         'display': ['Poppins', 'sans-serif'],
                         'body': ['Montserrat', 'sans-serif'],
+                        'mono': ['Space Mono', 'monospace']
                     }
                 }
             }
@@ -31,12 +33,16 @@
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
 
-<body>
+<body class="bg-gray-50 dark:bg-[#050505] text-gray-900 dark:text-white transition-colors duration-500 font-body">
 
     <!-- Background Elements -->
-    <div class="bg-noise"></div>
-    <div class="orb w-[600px] h-[600px] bg-ga-blue top-[-100px] left-[-200px]"></div>
-    <div class="orb w-[500px] h-[500px] bg-ga-orange bottom-[10%] right-[-100px]"></div>
+    <div class="bg-noise opacity-30 dark:opacity-100 mix-blend-soft-light pointer-events-none fixed inset-0 z-0"></div>
+    <div
+        class="orb w-[600px] h-[600px] bg-ga-blue top-[-100px] left-[-200px] opacity-20 dark:opacity-40 filter blur-[100px] fixed z-0">
+    </div>
+    <div
+        class="orb w-[500px] h-[500px] bg-ga-orange bottom-[10%] right-[-100px] opacity-20 dark:opacity-40 filter blur-[100px] fixed z-0">
+    </div>
 
     <!-- NAVBAR -->
     <nav id="main-nav" class="nav-sticky">
@@ -53,6 +59,15 @@
                 <a href="/index.html#about" class="nav-link">Tentang</a>
                 <a href="/index.html#registration" class="nav-link">Lomba</a>
                 <a href="/src/pages/kontak.html" class="nav-link">Kontak</a>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors group"
+                    aria-label="Toggle Theme">
+                    <iconify-icon icon="ph:sun-bold" class="text-yellow-400 hidden dark:block text-xl"></iconify-icon>
+                    <iconify-icon icon="ph:moon-bold"
+                        class="text-gray-400 dark:hidden text-xl group-hover:text-gray-600"></iconify-icon>
+                </button>
+
                 <a href="/index.html#registration" class="nav-btn">DAFTAR</a>
             </div>
 
