@@ -128,12 +128,22 @@ body {
    2. GLOBAL BACKGROUND EFFECTS
    =========================================================== */
 /* Efek Tekstur Bintik */
-.bg-noise {
-    z-index: -2;
-    opacity: 0.05;
+/* Global Noise Overlay (Refactored to Pseudo-element) */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Top overlay */
     pointer-events: none;
+    opacity: 0.07; /* Adjusted for visibility over dark bg */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
 }
+
+/* Old Class removed */
 
 /* Cahaya Melayang (Ambient Orbs) */
 .orb {
