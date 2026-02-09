@@ -439,7 +439,7 @@
 
 
     <!-- SPONSOR SECTION (V4: PREMIUM GRID LAYOUT - Eventis Style) -->
-    <section class="py-24 relative overflow-hidden bg-black" id="sponsors">
+    <section class="py-24 relative overflow-hidden" id="sponsors">
         <div class="max-w-7xl mx-auto px-6 relative z-10">
 
             <!-- Section Header (Left Aligned like Reference) -->
@@ -448,9 +448,9 @@
                     <div class="h-px w-8 bg-white/30"></div>
                     <span class="text-xs font-medium tracking-[0.2em] text-white/50 uppercase">Sponsorship</span>
                 </div>
-                <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight">
-                    Meet our partners who help<br>
-                    <span class="text-white/40">bring this event to life</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white dark:text-white text-gray-900 leading-tight">
+                    Mitra Kami yang Membantu<br>
+                    <span class="text-white/40">Mewujudkan Acara Ini</span>
                 </h2>
             </div>
 
@@ -460,10 +460,17 @@
 
                 <!-- 1. PLATINUM: Sewa Kamera Bali (BLUE GLOW) - GLASS -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center overflow-hidden hover:bg-blue-600/20 hover:border-blue-500/50 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-black text-white text-xl tracking-tight group-hover:scale-105 transition-transform duration-300">SEWA<span
-                            class="text-blue-500">KAMERA</span></span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-blue-600/20 hover:border-blue-500/50 transition-all duration-500 opacity-0">
+                    <!-- Placeholder Logo (Icon) -->
+                    <iconify-icon icon="mdi:camera"
+                        class="text-3xl text-blue-400 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <!-- Name -->
+                    <div class="text-center">
+                        <span class="block font-black text-white text-sm md:text-base tracking-tight uppercase">SEWA
+                            KAMERA</span>
+                        <span class="text-[10px] text-blue-400 font-mono">BALI</span>
+                    </div>
+
                     <div
                         class="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_10px_#3b82f6]">
                     </div>
@@ -471,10 +478,14 @@
 
                 <!-- 2. PLATINUM: Info Denpasar (BLUE GLOW) - GLASS -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center overflow-hidden hover:bg-blue-600/20 hover:border-blue-500/50 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-black text-white text-xl tracking-tight group-hover:scale-105 transition-transform duration-300">INFO<span
-                            class="text-blue-500">DPS</span></span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-blue-600/20 hover:border-blue-500/50 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:information-box"
+                        class="text-3xl text-blue-400 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span
+                            class="block font-black text-white text-sm md:text-base tracking-tight uppercase">INFO</span>
+                        <span class="text-[10px] text-blue-400 font-mono">DENPASAR</span>
+                    </div>
                     <div
                         class="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_10px_#3b82f6]">
                     </div>
@@ -482,81 +493,117 @@
 
                 <!-- 3. GOLD: Punapi Bali (YELLOW GLOW) -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-yellow-600/10 hover:border-yellow-500/30 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-bold text-white/90 text-lg tracking-tight group-hover:scale-105 transition-transform duration-300">PUNAPI<span
-                            class="text-yellow-500">BALI</span></span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-yellow-600/10 hover:border-yellow-500/30 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:newspaper-variant"
+                        class="text-3xl text-yellow-500 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span
+                            class="block font-bold text-white/90 text-sm md:text-base tracking-tight uppercase">PUNAPI</span>
+                        <span class="text-[10px] text-yellow-500 font-mono">BALI</span>
+                    </div>
                 </div>
 
                 <!-- 4. GOLD: Info Bali News (YELLOW GLOW) -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-yellow-600/10 hover:border-yellow-500/30 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-bold text-white/90 text-lg tracking-tight group-hover:scale-105 transition-transform duration-300">BALI<span
-                            class="text-yellow-500">NEWS</span></span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-yellow-600/10 hover:border-yellow-500/30 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:newspaper"
+                        class="text-3xl text-yellow-500 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span
+                            class="block font-bold text-white/90 text-sm md:text-base tracking-tight uppercase">BALI</span>
+                        <span class="text-[10px] text-yellow-500 font-mono">NEWS</span>
+                    </div>
                 </div>
 
                 <!-- 5. SILVER: HMTI Udayana (CYAN GLOW) -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-cyan-600/10 hover:border-cyan-500/30 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-bold text-white/70 text-base group-hover:text-cyan-400 transition-colors duration-300">HMTI
-                        UNUD</span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-cyan-600/10 hover:border-cyan-500/30 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:school"
+                        class="text-3xl text-cyan-400 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span
+                            class="block font-bold text-white/80 text-xs md:text-sm tracking-tight uppercase">HMTI</span>
+                        <span class="text-[10px] text-cyan-400 font-mono">UDAYANA</span>
+                    </div>
                 </div>
 
                 <!-- 6. SILVER: ITB STIKOM (CYAN GLOW) -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-cyan-600/10 hover:border-cyan-500/30 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-bold text-white/70 text-base group-hover:text-cyan-400 transition-colors duration-300">ITB
-                        STIKOM</span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-cyan-600/10 hover:border-cyan-500/30 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:school"
+                        class="text-3xl text-cyan-400 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span
+                            class="block font-bold text-white/80 text-xs md:text-sm tracking-tight uppercase">ITB</span>
+                        <span class="text-[10px] text-cyan-400 font-mono">STIKOM</span>
+                    </div>
                 </div>
 
                 <!-- 7. SILVER: INSTIKI (CYAN GLOW) -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-cyan-600/10 hover:border-cyan-500/30 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-bold text-white/70 text-base group-hover:text-cyan-400 transition-colors duration-300">INSTIKI</span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-cyan-600/10 hover:border-cyan-500/30 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:school"
+                        class="text-3xl text-cyan-400 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span
+                            class="block font-bold text-white/80 text-xs md:text-sm tracking-tight uppercase">INSTIKI</span>
+                        <span class="text-[10px] text-cyan-400 font-mono">INDONESIA</span>
+                    </div>
                 </div>
 
-                <!-- 8. MEDIA: Info Badung (ROSE GLOW) -->
+                <!-- 8. BRONZE: Info Badung (GRAY GLOW) -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-rose-600/10 hover:border-rose-500/30 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-medium text-white/50 text-sm group-hover:text-rose-400 transition-colors duration-300">INFO
-                        BADUNG</span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-white/5 hover:border-white/20 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:map-marker"
+                        class="text-3xl text-gray-500 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span class="block font-bold text-gray-400 text-xs tracking-tight uppercase">INFO</span>
+                        <span class="text-[10px] text-gray-600 font-mono">BADUNG</span>
+                    </div>
                 </div>
 
-                <!-- 9. MEDIA: Denpasar Now (ROSE GLOW) -->
+                <!-- 9. BRONZE: DPS NOW -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-rose-600/10 hover:border-rose-500/30 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-medium text-white/50 text-sm group-hover:text-rose-400 transition-colors duration-300">DPS
-                        NOW</span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-white/5 hover:border-white/20 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:clock-fast"
+                        class="text-3xl text-gray-500 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span class="block font-bold text-gray-400 text-xs tracking-tight uppercase">DPS</span>
+                        <span class="text-[10px] text-gray-600 font-mono">NOW</span>
+                    </div>
                 </div>
 
-                <!-- 10. MEDIA: Mading Sekolah (ROSE GLOW) -->
+                <!-- 10. BRONZE: Mading Sekolah -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-rose-600/10 hover:border-rose-500/30 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-medium text-white/50 text-sm group-hover:text-rose-400 transition-colors duration-300">MADING
-                        SEKOLAH</span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-white/5 hover:border-white/20 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:bulletin-board"
+                        class="text-3xl text-gray-500 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span class="block font-bold text-gray-400 text-xs tracking-tight uppercase">MADING</span>
+                        <span class="text-[10px] text-gray-600 font-mono">SEKOLAH</span>
+                    </div>
                 </div>
 
-                <!-- 11. OFFICIAL: Osis SKANETI (TEAL GLOW) -->
+                <!-- 11. BRONZE: OSIS SKANETI -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-teal-600/10 hover:border-teal-500/30 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-bold text-white/60 text-sm group-hover:text-teal-400 transition-colors duration-300">OSIS
-                        SKANETI</span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-white/5 hover:border-white/20 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:account-group"
+                        class="text-3xl text-gray-500 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span class="block font-bold text-gray-400 text-xs tracking-tight uppercase">OSIS</span>
+                        <span class="text-[10px] text-gray-600 font-mono">SKANETI</span>
+                    </div>
                 </div>
 
-                <!-- 12. OFFICIAL: MPK SKANETI (TEAL GLOW) -->
+                <!-- 12. BRONZE: MPK SKANETI -->
                 <div
-                    class="sponsor-card group relative h-28 md:h-32 bg-[#0A0A0A] border border-white/5 rounded-2xl flex items-center justify-center overflow-hidden hover:bg-teal-600/10 hover:border-teal-500/30 transition-all duration-500 opacity-0">
-                    <span
-                        class="relative z-10 font-bold text-white/60 text-sm group-hover:text-teal-400 transition-colors duration-300">MPK
-                        SKANETI</span>
+                    class="sponsor-card group relative h-36 md:h-40 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center gap-3 overflow-hidden hover:bg-white/5 hover:border-white/20 transition-all duration-500 opacity-0">
+                    <iconify-icon icon="mdi:gavel"
+                        class="text-3xl text-gray-500 group-hover:scale-110 transition-transform duration-300"></iconify-icon>
+                    <div class="text-center">
+                        <span class="block font-bold text-gray-400 text-xs tracking-tight uppercase">MPK</span>
+                        <span class="text-[10px] text-gray-600 font-mono">SKANETI</span>
+                    </div>
                 </div>
 
             </div>
