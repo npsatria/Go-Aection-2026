@@ -265,176 +265,89 @@
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <!-- Section Header -->
             <div class="text-center mb-24 relative reveal-up">
-                <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-ga-blue/20 blur-3xl rounded-full">
-                </div>
-                <h4 class="font-display text-ga-blue text-xs tracking-[0.4em] uppercase mb-6 relative z-10">Event
-                    Schedule</h4>
-                <h2
-                    class="text-5xl md:text-7xl font-bold text-white uppercase font-display tracking-tighter relative z-10">
-                    TIMELINE 2026<span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-ga-mustard to-yellow-200">2026</span>
-                </h2>
-
-
-            </div>
-
-            <!-- Timeline Container -->
-            <div class="relative max-w-5xl mx-auto">
-                <!-- Center Line (Neon) -->
-                <div
-                    class="absolute left-8 md:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-transparent via-ga-blue/30 to-transparent md:-translate-x-1/2">
+                <div <div class="mb-16 md:mb-24 reveal-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-px w-8 bg-white/30"></div>
+                        <span class="text-xs font-medium tracking-[0.2em] text-white/50 uppercase">Timeline</span>
+                    </div>
+                    <h2 class="text-display-xl text-white mb-6">
+                        Jadwal <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Acara</span>
+                    </h2>
                 </div>
 
-                <div class="space-y-24">
+                <!-- TIMELINE CONTAINER (New Eventivee Style) -->
+                <div class="timeline-container">
 
-                    <!-- Item 1: Pendaftaran (Left Content) -->
-                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center group reveal-up">
-                        <!-- Dot Indicator -->
-                        <div
-                            class="absolute left-8 md:left-1/2 w-6 h-6 bg-[#0a0a0a] border-2 border-ga-blue rounded-full -translate-x-[11px] md:-translate-x-1/2 shadow-[0_0_20px_rgba(23,70,139,0.5)] z-20 group-hover:scale-125 transition-transform duration-500">
-                            <div class="w-full h-full bg-ga-blue rounded-full opacity-50 animate-ping"></div>
+                    <!-- Item 1: Pendaftaran -->
+                    <div class="timeline-row variant-blue group reveal-up">
+                        <div class="timeline-time">
+                            <span class="text-ga-blue font-bold">01 FEB 2026</span>
                         </div>
-
-                        <!-- Content Card -->
-                        <div class="pl-20 md:pl-0 md:text-right order-1">
-                            <div
-                                class="p-8 border border-white/5 bg-white/[0.02] backdrop-blur-sm rounded-2xl group-hover:border-ga-blue/30 group-hover:bg-ga-blue/[0.05] transition-all duration-500">
-                                <h3
-                                    class="text-3xl font-bold text-white mb-2 group-hover:text-ga-blue transition-colors">
-                                    Pendaftaran</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                                    Pendaftaran dibuka untuk semua kategori lomba (IT, Robotik, Kesenian, Rohis).
-                                </p>
-                                <div
-                                    class="inline-flex items-center gap-2 text-ga-blue text-xs font-bold uppercase tracking-wider">
-                                    <span>Sekarang</span> <span
-                                        class="group-hover:translate-x-1 transition-transform">→</span>
-                                </div>
+                        <div class="timeline-content">
+                            <h3>Pendaftaran Gelombang 1</h3>
+                            <p>Masa pendaftaran awal untuk semua divisi lomba dengan biaya normal. Segera daftarkan
+                                timmu sebelum kuota penuh!</p>
+                            <div class="timeline-tag border-ga-blue/30 text-ga-blue">
+                                <iconify-icon icon="lucide:pen-tool"></iconify-icon>
+                                OPEN REGISTRATION
                             </div>
-                        </div>
-
-                        <!-- Date Badge -->
-                        <div class="pl-20 md:pl-0 order-2">
-                            <span
-                                class="inline-flex items-center gap-3 px-6 py-3 bg-ga-blue/10 border border-ga-blue/20 rounded-full text-ga-blue font-mono font-bold text-sm shadow-lg shadow-ga-blue/5">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                    </path>
-                                </svg>
-                                Sekarang - 7 Feb 2026
-                            </span>
                         </div>
                     </div>
 
-                    <!-- Item 2: Technical Meeting (Right Content) -->
-                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center group reveal-up">
-                        <div
-                            class="absolute left-8 md:left-1/2 w-6 h-6 bg-[#0a0a0a] border-2 border-ga-red rounded-full -translate-x-[11px] md:-translate-x-1/2 shadow-[0_0_20px_rgba(209,46,23,0.5)] z-20 group-hover:scale-125 transition-transform duration-500">
-                            <div class="w-full h-full bg-ga-red rounded-full opacity-50 animate-ping"></div>
+                    <!-- Item 2: TM -->
+                    <div class="timeline-row variant-red group reveal-up">
+                        <div class="timeline-time">
+                            <span class="text-ga-red font-bold">07 FEB 2026</span>
                         </div>
-
-                        <div class="pl-20 md:pl-0 md:text-right order-1 md:order-2 md:text-left">
-                            <div
-                                class="p-8 border border-white/5 bg-white/[0.02] backdrop-blur-sm rounded-2xl group-hover:border-ga-red/30 group-hover:bg-ga-red/[0.05] transition-all duration-500">
-                                <h3
-                                    class="text-3xl font-bold text-white mb-2 group-hover:text-ga-red transition-colors">
-                                    Pertemuan Teknis (TM)</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                                    Penjelasan teknis dan aturan lomba. Wajib dihadiri oleh perwakilan tim.
-                                </p>
-                                <div
-                                    class="inline-flex items-center gap-2 text-ga-red text-xs font-bold uppercase tracking-wider">
-                                    <span>Online</span>
-                                </div>
+                        <div class="timeline-content">
+                            <h3>Technical Meeting</h3>
+                            <p>Penjelasan teknis lomba, peraturan, dan sesi tanya jawab dengan juri/panitia. Wajib hadir
+                                perwakilan tim untuk validasi.</p>
+                            <div class="timeline-tag border-ga-red/30 text-ga-red">
+                                <iconify-icon icon="lucide:alert-circle"></iconify-icon>
+                                PENTING
                             </div>
-                        </div>
-
-                        <div class="pl-20 md:pl-0 md:text-right order-2 md:order-1">
-                            <span
-                                class="inline-flex items-center gap-3 px-6 py-3 bg-ga-red/10 border border-ga-red/20 rounded-full text-ga-red font-mono font-bold text-sm shadow-lg shadow-ga-red/5">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                7 Feb 2026
-                            </span>
                         </div>
                     </div>
 
-                    <!-- Item 3: Pelaksanaan Lomba (Left Content) -->
-                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center group reveal-up">
-                        <div
-                            class="absolute left-8 md:left-1/2 w-6 h-6 bg-[#0a0a0a] border-2 border-ga-orange rounded-full -translate-x-[11px] md:-translate-x-1/2 shadow-[0_0_20px_rgba(209,116,23,0.5)] z-20 group-hover:scale-125 transition-transform duration-500">
-                            <div class="w-full h-full bg-ga-orange rounded-full opacity-50 animate-ping"></div>
-                        </div>
-
-                        <div class="pl-20 md:pl-0 md:text-right order-1">
-                            <div
-                                class="p-8 border border-white/5 bg-white/[0.02] backdrop-blur-sm rounded-2xl group-hover:border-ga-orange/30 group-hover:bg-ga-orange/[0.05] transition-all duration-500">
-                                <h3
-                                    class="text-3xl font-bold text-white mb-2 group-hover:text-ga-orange transition-colors">
-                                    Hari Kompetisi</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                                    Tunjukkan kemampuan terbaikmu di hadapan para juri profesional.
-                                </p>
-                                <div
-                                    class="inline-flex items-center gap-2 text-ga-orange text-xs font-bold uppercase tracking-wider">
-                                    <span>SIAP BERTARUNG!</span>
-                                </div>
+                    <!-- Item 3: Competition -->
+                    <div class="timeline-row variant-orange group reveal-up">
+                        <div class="timeline-time">
+                            <div class="flex flex-col">
+                                <span class="text-ga-orange font-bold">13 - 14 FEB</span>
+                                <span class="text-xs opacity-50">2026</span>
                             </div>
                         </div>
-                        <div class="pl-20 md:pl-0 order-2">
-                            <span
-                                class="inline-flex items-center gap-3 px-6 py-3 bg-ga-orange/10 border border-ga-orange/20 rounded-full text-ga-orange font-mono font-bold text-sm shadow-lg shadow-ga-orange/5">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                                13 - 14 Feb 2026
-                            </span>
+                        <div class="timeline-content">
+                            <h3>Hari Kompetisi</h3>
+                            <p>Tunjukkan kemampuan terbaikmu di hadapan para juri profesional. Jadwal detail per divisi
+                                akan dibagikan saat Technical Meeting.</p>
+                            <div class="timeline-tag border-ga-orange/30 text-ga-orange">
+                                <iconify-icon icon="lucide:swords"></iconify-icon>
+                                SIAP BERTARUNG!
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Item 4: Awarding (Right Content) -->
-                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center group reveal-up">
-                        <div
-                            class="absolute left-8 md:left-1/2 w-6 h-6 bg-[#0a0a0a] border-2 border-ga-teal rounded-full -translate-x-[11px] md:-translate-x-1/2 shadow-[0_0_20px_rgba(70,116,116,0.5)] z-20 group-hover:scale-125 transition-transform duration-500">
-                            <div class="w-full h-full bg-ga-teal rounded-full opacity-50 animate-ping"></div>
+                    <!-- Item 4: Awarding -->
+                    <div class="timeline-row variant-teal group reveal-up">
+                        <div class="timeline-time">
+                            <span class="text-ga-teal font-bold">14 FEB 2026</span>
                         </div>
-
-                        <div class="pl-20 md:pl-0 md:text-right order-1 md:order-2 md:text-left">
-                            <div
-                                class="p-8 border border-white/5 bg-white/[0.02] backdrop-blur-sm rounded-2xl group-hover:border-ga-teal/30 group-hover:bg-ga-teal/[0.05] transition-all duration-500">
-                                <h3
-                                    class="text-3xl font-bold text-white mb-2 group-hover:text-ga-teal transition-colors">
-                                    Hari Pengumuman</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                                    Pengumuman pemenang, penyerahan piala bergilir, dan hadiah menarik lainnya.
-                                </p>
-                                <div
-                                    class="inline-flex items-center gap-2 text-ga-teal text-xs font-bold uppercase tracking-wider">
-                                    <span>Upacara Penutupan</span>
-                                </div>
+                        <div class="timeline-content">
+                            <h3>Hari Pengumuman</h3>
+                            <p>Pengumuman pemenang, penyerahan piala bergilir, dan hadiah menarik lainnya. Ditutup
+                                dengan penampilan spesial guest star.</p>
+                            <div class="timeline-tag border-ga-teal/30 text-ga-teal">
+                                <iconify-icon icon="lucide:trophy"></iconify-icon>
+                                AWARDING NIGHT
                             </div>
-                        </div>
-                        <div class="pl-20 md:pl-0 md:text-right order-2 md:order-1">
-                            <span
-                                class="inline-flex items-center gap-3 px-6 py-3 bg-ga-teal/10 border border-ga-teal/20 rounded-full text-ga-teal font-mono font-bold text-sm shadow-lg shadow-ga-teal/5">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
-                                    </path>
-                                </svg>
-                                14 Feb 2026
-                            </span>
                         </div>
                     </div>
 
                 </div>
             </div>
-        </div>
     </section>
 
 

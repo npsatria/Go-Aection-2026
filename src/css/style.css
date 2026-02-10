@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @config "../../tailwind.config.js";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 
 /* ===========================================================
@@ -683,4 +683,115 @@ body::after {
     60% { clip-path: inset(10% 0 80% 0); transform: translate(-1px, -2px); }
     80% { clip-path: inset(50% 0 30% 0); transform: translate(2px, 1px); }
     100% { clip-path: inset(70% 0 10% 0); transform: translate(-2px, -1px); }
+}
+
+/* ===========================================================
+   11. TIMELINE REDESIGN (EVENTIVEE STYLE)
+   =========================================================== */
+.font-inter { font-family: 'Inter', sans-serif; }
+.font-plex { font-family: 'IBM Plex Mono', monospace; }
+
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .timeline-row {
+        grid-template-columns: 250px 1fr; /* Fixed width for time, rest for content */
+        gap: 3rem;
+        padding: 3rem 0;
+    }
+}
+
+.timeline-row:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.timeline-time {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.875rem; /* 14px */
+    color: #94a3b8; /* Muted grey */
+    padding-top: 0.25rem; /* Optical alignment with heading */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.timeline-time::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--mustard);
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.timeline-row:hover .timeline-time::before {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px var(--mustard);
+}
+
+/* Variant Colors for Time Dots */
+.timeline-row.variant-blue .timeline-time::before { background-color: var(--blue); box-shadow: none; }
+.timeline-row.variant-blue:hover .timeline-time::before { box-shadow: 0 0 10px var(--blue); }
+
+.timeline-row.variant-red .timeline-time::before { background-color: var(--red); box-shadow: none; }
+.timeline-row.variant-red:hover .timeline-time::before { box-shadow: 0 0 10px var(--red); }
+
+.timeline-row.variant-orange .timeline-time::before { background-color: var(--orange); box-shadow: none; }
+.timeline-row.variant-orange:hover .timeline-time::before { box-shadow: 0 0 10px var(--orange); }
+
+.timeline-row.variant-teal .timeline-time::before { background-color: var(--teal); box-shadow: none; }
+.timeline-row.variant-teal:hover .timeline-time::before { box-shadow: 0 0 10px var(--teal); }
+
+
+.timeline-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+}
+
+.timeline-row:hover .timeline-content h3 {
+    color: #ffffff; /* Keep white or slight tint */
+}
+
+.timeline-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #9ca3af; /* Gray-400 */
+    line-height: 1.6;
+    max-width: 65ch;
+}
+
+.timeline-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
 }
